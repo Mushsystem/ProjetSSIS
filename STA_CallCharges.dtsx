@@ -1,0 +1,692 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/5/2023 11:32:56 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-T7NOCE3"
+  DTS:CreatorName="DESKTOP-T7NOCE3\arnau"
+  DTS:DTSID="{92FD6816-7E73-49C6-A6E1-1A486E29FB8A}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{A9A31D3D-7C84-4F6E-9203-C7FEB94A0132}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{13127285-FAEC-4EB8-845A-CD3B1D9A5A50}"
+      DTS:ObjectName=".\SQLEXPRESS.STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{13127285-FAEC-4EB8-845A-CD3B1D9A5A50}.\SQLEXPRESS.STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{8AA320FF-3C0A-427B-A6CC-A8CF51908112}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\arnau\OneDrive\Documents\Call Charges.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Type "
+              DTS:DTSID="{A07E161D-F00E-4899-A2B2-12D79E8AC8D2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2018)"
+              DTS:DTSID="{CBFED139-2AE4-4C90-B2F1-62A01892ED64}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2019)"
+              DTS:DTSID="{874CE781-9C32-4F2C-BA53-AB7DD3086DDB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2020)"
+              DTS:DTSID="{D5869389-83D9-412A-A31B-9B29DC6C4AFA}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2021)"
+              DTS:DTSID="{0852933E-5F83-4DAB-B2F7-55EEC202C0E1}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{D7871315-B4F0-467F-B320-5BBC02A155B7}"
+      DTS:ObjectName="Flat File Connection Manager 1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1036"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\arnau\OneDrive\Documents\Call Charges.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Type "
+              DTS:DTSID="{0DE58343-9C05-4D87-B79E-2ABCAADA4C1C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2018)"
+              DTS:DTSID="{7FE10780-A390-4780-8BD3-7C76A9DAA7B2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2019)"
+              DTS:DTSID="{431B07E5-454A-4746-A6C5-0DBCB4EC8E45}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2020)"
+              DTS:DTSID="{A939307E-6A9F-4CF8-8225-CAFED76C1D3D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="Call Charges (2021)"
+              DTS:DTSID="{464F3D4E-38C2-4DFC-A5B6-DDF334E3C970}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DTF - Load STA CallCharges"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{6E3A80DC-F39B-4676-9E3D-90BE46E3B464}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DTF - Load STA CallCharges"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Source du fichier plat;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Source du fichier plat"
+              localeId="1036"
+              name="FF_SRC - CallCharges"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Spécifie si les colonnes dont la longueur est zéro sont traitées comme des valeurs NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom d'une colonne de sortie contenant le nom du fichier. Si aucun nom n'est spécifié, aucune colonne de sortie contenant le nom du fichier ne sera générée."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager 1]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat]"
+                  name="Sortie de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Type ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Type ]"
+                      length="50"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Type ]"
+                      name="Call Type "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2018)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2018)]"
+                      length="50"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2018)]"
+                      name="Call Charges (2018)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2019)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2019)]"
+                      length="50"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2019)]"
+                      name="Call Charges (2019)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2020)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2020)]"
+                      length="50"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2020)]"
+                      name="Call Charges (2020)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2021)]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2021)]"
+                      length="50"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2021)]"
+                      name="Call Charges (2021)"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si les données sont au format binaire."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Type ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Type " />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2018)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2018)" />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2019)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2019)" />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2020)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2020)" />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].ExternalColumns[Call Charges (2021)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2021)" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie d'erreur de source de fichier plat]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source de fichier plat">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Colonne de sortie d'erreur de source de fichier plat"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie d'erreur de source de fichier plat].Columns[Colonne de sortie d'erreur de source de fichier plat]"
+                      name="Colonne de sortie d'erreur de source de fichier plat" />
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie d'erreur de source de fichier plat].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - STA CallCharges"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[CallCharges]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].Columns[Call Type ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Type "
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type ]"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Type ]" />
+                    <inputColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2018)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Charges (2018)"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2018)]"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2018)]" />
+                    <inputColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2019)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Charges (2019)"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2019)]"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2019)]" />
+                    <inputColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2020)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Charges (2020)"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2020)]"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2020)]" />
+                    <inputColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].Columns[Call Charges (2021)]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="Call Charges (2021)"
+                      externalMetadataColumnId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2021)]"
+                      lineageId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat].Columns[Call Charges (2021)]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Type " />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2018)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2018)" />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2019)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2019)" />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2020)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2020)" />
+                    <externalMetadataColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Charges (2021)]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="Call Charges (2021)" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DTF - Load STA CallCharges.Paths[Sortie de source de fichier plat]"
+              endId="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source de fichier plat"
+              startId="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges.Outputs[Sortie de source de fichier plat]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Empty CallCharges"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{EA100616-4506-48D9-9C8D-39E570D6DB51}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Empty CallCharges"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{13127285-FAEC-4EB8-845A-CD3B1D9A5A50}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE CALLCHARGES" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F60B5A1B-737C-4B4E-9669-2E2AC09580F8}"
+      DTS:From="Package\SQL - Empty CallCharges"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DTF - Load STA CallCharges" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="202.4,41.6"
+          Id="Package\SQL - Empty CallCharges"
+          TopLeft="234.615389724984,117.838706108909" />
+        <NodeLayout
+          Size="219.2,41.6"
+          Id="Package\DTF - Load STA CallCharges"
+          TopLeft="232.692312760025,220.580638481446" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="339.053851242505,159.438706108909">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61.1419323725365"
+              Start="0,0"
+              End="0,53.6419323725365">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.6419323725365" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DTF - Load STA CallCharges">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="189.6,41.6"
+          Id="Package\DTF - Load STA CallCharges\FF_SRC - CallCharges"
+          TopLeft="175.38461920425,65.8387076836254" />
+        <NodeLayout
+          Size="220.8,41.6"
+          Id="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges"
+          TopLeft="161.153849663555,187.870962052638" />
+        <EdgeLayout
+          Id="Package\DTF - Load STA CallCharges.Paths[Sortie de source de fichier plat]"
+          TopLeft="270.869234433903,107.438707683625">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,80.4322543690128"
+              Start="0,0"
+              End="0,72.9322543690128">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,72.9322543690128" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DTF - Load STA CallCharges\OLE_DST - STA CallCharges">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
