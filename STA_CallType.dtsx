@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="STA_CallType"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{91BCBFE5-89C7-42EB-BC59-9609496C3A96}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{89134CBB-E943-439E-BF04-75333D717E26}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -220,7 +220,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[CallType]</property>
+                  name="OpenRowset">[dbo].[CallType]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -299,13 +299,13 @@
                       refId="Package\DFT - STA_CallType\OLE_DST - CallType.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeID]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="CallTypeID" />
                     <externalMetadataColumn
                       refId="Package\DFT - STA_CallType\OLE_DST - CallType.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTypeLabel]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="CallTypeLabel" />
                   </externalMetadataColumns>
                 </input>
@@ -387,13 +387,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="188,42"
-          Id="Package\SQL - Empty CallType"
-          TopLeft="5.5,5.5" />
-        <NodeLayout
           Size="181,42"
           Id="Package\DFT - STA_CallType"
           TopLeft="6.5,140.5" />
+        <NodeLayout
+          Size="188,42"
+          Id="Package\SQL - Empty CallType"
+          TopLeft="5.5,5.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="98.25,47.5">
@@ -425,13 +425,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="175,42"
-          Id="Package\DFT - STA_CallType\FF_SRC - CallType"
-          TopLeft="90,68" />
-        <NodeLayout
           Size="182,42"
           Id="Package\DFT - STA_CallType\OLE_DST - CallType"
           TopLeft="93,221" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\DFT - STA_CallType\FF_SRC - CallType"
+          TopLeft="90,68" />
         <EdgeLayout
           Id="Package\DFT - STA_CallType.Paths[Sortie de source de fichier plat]"
           TopLeft="180.75,110">

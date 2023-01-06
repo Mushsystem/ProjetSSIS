@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="5"
-  DTS:VersionGUID="{B129D9EA-4113-4EB6-A4A0-4D421929176B}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{4D39F2D0-515B-4C50-B505-911C0279CEAD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -212,7 +212,7 @@
                     <property
                       dataType="System.String"
                       description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                      name="OpenRowset">[CallData]</property>
+                      name="OpenRowset">[OLE_DST - STA_DataCall]</property>
                     <property
                       dataType="System.String"
                       description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -323,37 +323,37 @@
                           refId="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="255"
                           name="Call Type" />
                         <externalMetadataColumn
                           refId="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="255"
                           name="EmployeeID" />
                         <externalMetadataColumn
                           refId="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="255"
                           name="CallDuration" />
                         <externalMetadataColumn
                           refId="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall.Inputs[Entrée de destination OLE DB].ExternalColumns[WaitTime]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="255"
                           name="WaitTime" />
                         <externalMetadataColumn
                           refId="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall.Inputs[Entrée de destination OLE DB].ExternalColumns[CallAbandoned]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="255"
                           name="CallAbandoned" />
                         <externalMetadataColumn
                           refId="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTimestamp]"
                           codePage="1252"
                           dataType="str"
-                          length="50"
+                          length="255"
                           name="CallTimestamp" />
                       </externalMetadataColumns>
                     </input>
@@ -808,13 +808,17 @@
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="154,42"
-          Id="Package\LOOP - Load Data Files\DTF - Load Data\SRC - DataCall"
-          TopLeft="58.5,53.5" />
+          Size="208,42"
+          Id="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall"
+          TopLeft="65,250" />
         <NodeLayout
           Size="165,42"
           Id="Package\LOOP - Load Data Files\DTF - Load Data\Nombre de lignes"
           TopLeft="67,144" />
+        <NodeLayout
+          Size="154,42"
+          Id="Package\LOOP - Load Data Files\DTF - Load Data\SRC - DataCall"
+          TopLeft="58.5,53.5" />
         <EdgeLayout
           Id="Package\LOOP - Load Data Files\DTF - Load Data.Paths[Sortie de source de fichier plat]"
           TopLeft="135.5,95.5">
@@ -849,10 +853,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="208,42"
-          Id="Package\LOOP - Load Data Files\DTF - Load Data\OLE_DST - STA_DataCall"
-          TopLeft="65,250" />
         <EdgeLayout
           Id="Package\LOOP - Load Data Files\DTF - Load Data.Paths[Nombre de lignes sortie 1]"
           TopLeft="149.5,186">

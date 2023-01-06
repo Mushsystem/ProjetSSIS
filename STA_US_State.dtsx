@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{749F911B-255C-4C60-A178-0E382395AA28}">
+  DTS:VersionBuild="2"
+  DTS:VersionGUID="{69324ADE-D1BF-4913-8D21-2AE32C803EDD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -257,7 +257,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[US_State]</property>
+                  name="OpenRowset">[dbo].[US_State]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -344,19 +344,19 @@
                       refId="Package\DFT - STA_US_State\OLE_DST - US_State.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCD]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="StateCD" />
                     <externalMetadataColumn
                       refId="Package\DFT - STA_US_State\OLE_DST - US_State.Inputs[Entrée de destination OLE DB].ExternalColumns[Name]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="Name" />
                     <externalMetadataColumn
                       refId="Package\DFT - STA_US_State\OLE_DST - US_State.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="Region" />
                   </externalMetadataColumns>
                 </input>
@@ -488,13 +488,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="176,42"
-          Id="Package\DFT - STA_US_State\FF_SRC - Us_State"
-          TopLeft="93,64" />
-        <NodeLayout
           Size="186,42"
           Id="Package\DFT - STA_US_State\OLE_DST - US_State"
           TopLeft="76,180" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\DFT - STA_US_State\FF_SRC - Us_State"
+          TopLeft="93,64" />
         <EdgeLayout
           Id="Package\DFT - STA_US_State.Paths[Sortie de source de fichier plat]"
           TopLeft="181,106">

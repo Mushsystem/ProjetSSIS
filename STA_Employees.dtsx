@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="STA_Employees"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{8798052F-8452-49DF-A8BB-4A61DB0E3426}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{3BF3E28A-A0C8-47EB-8059-69D36AE81CEC}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -389,25 +389,25 @@
                       refId="Package\DFT - STA_Employees\OLE_DST - STA_Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="EmployeeID" />
                     <externalMetadataColumn
                       refId="Package\DFT - STA_Employees\OLE_DST - STA_Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="EmployeeName" />
                     <externalMetadataColumn
                       refId="Package\DFT - STA_Employees\OLE_DST - STA_Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[Site]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="Site" />
                     <externalMetadataColumn
                       refId="Package\DFT - STA_Employees\OLE_DST - STA_Employees.Inputs[Entrée de destination OLE DB].ExternalColumns[ManagerName]"
                       codePage="1252"
                       dataType="str"
-                      length="50"
+                      length="255"
                       name="ManagerName" />
                   </externalMetadataColumns>
                 </input>
@@ -489,13 +489,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="227,42"
-          Id="Package\SQL - Empty STA_Employees"
-          TopLeft="171,42" />
-        <NodeLayout
           Size="192,42"
           Id="Package\DFT - STA_Employees"
           TopLeft="202,209" />
+        <NodeLayout
+          Size="227,42"
+          Id="Package\SQL - Empty STA_Employees"
+          TopLeft="171,42" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="284.5,84">
@@ -539,13 +539,13 @@
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="186,42"
-          Id="Package\DFT - STA_Employees\FF_SRC - Employees"
-          TopLeft="122,56" />
-        <NodeLayout
           Size="221,42"
           Id="Package\DFT - STA_Employees\OLE_DST - STA_Employees"
           TopLeft="98,216" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\DFT - STA_Employees\FF_SRC - Employees"
+          TopLeft="122,56" />
         <EdgeLayout
           Id="Package\DFT - STA_Employees.Paths[Sortie de source de fichier plat]"
           TopLeft="211.75,98">
