@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="STA_Employees"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{3BF3E28A-A0C8-47EB-8059-69D36AE81CEC}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{18F68D29-D00B-44C0-8E6B-D989F1BFE0B8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

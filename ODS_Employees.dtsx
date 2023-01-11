@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+﻿<?xml version="1.0"?>
 <DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
   DTS:refId="Package"
   DTS:CreationDate="1/6/2023 11:32:13 AM"
@@ -11,9 +11,1131 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionGUID="{23C0E9B7-33E4-409B-8774-5C34E9792FDB}">
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{A8D785F3-B4C4-4352-AC4A-69A5165F6543}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{D0CBE236-B3D3-4CCE-8300-16E4765BCD4D}"
+      DTS:ObjectName=".\SQLEXPRESS.ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{D0CBE236-B3D3-4CCE-8300-16E4765BCD4D}.\SQLEXPRESS.ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A886D257-0DCC-4A2D-957A-9651DC7C5CC5}"
+      DTS:ObjectName=".\SQLEXPRESS.STA">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package3-{A886D257-0DCC-4A2D-957A-9651DC7C5CC5}.\SQLEXPRESS.STA;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Tâche de flux de données"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{EC4BB0EF-2EF7-4309-B25F-5BF0E9DA0FE1}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Tâche de flux de données"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Tâche de flux de données\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Site]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Site"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[Site]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Derived Column 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[RIGHT](#{Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[Site]},2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RIGHT(Site,2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Colonne dérivée 1"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée 1"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée].Columns[StateCD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="StateCD"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[StateCD]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[Derived Column 1]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[Derived Column 1]"
+                      name="Derived Column 1"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[RIGHT](#{Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[StateCD]},2)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RIGHT(StateCD,2)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination OLE DB"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[test]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination OLE DB.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[StateCD]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="StateCD"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCD]"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[StateCD]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Name"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Name]"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[Name]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Region]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Region"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[Region]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Derived Column 1]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Derived Column 1"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Derived Column 1]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée].Columns[Derived Column 1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[StateCD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="StateCD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Region" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Derived Column 1]"
+                      dataType="wstr"
+                      length="2"
+                      name="Derived Column 1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\Destination OLE DB 1"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Destination OLE DB 1"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[test1]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\Destination OLE DB 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[EmployeeName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EmployeeName"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeName]"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[EmployeeName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Site]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Site"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Site]"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[Site]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[ManagerName]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="ManagerName"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[ManagerName]"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[ManagerName]" />
+                    <inputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].Columns[Derived Column 1]"
+                      cachedDataType="wstr"
+                      cachedLength="2"
+                      cachedName="Derived Column 1"
+                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Derived Column 1]"
+                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée].Columns[Derived Column 1]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EmployeeName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Site]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Site" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[ManagerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ManagerName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB].ExternalColumns[Derived Column 1]"
+                      dataType="wstr"
+                      length="2"
+                      name="Derived Column 1" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\Destination OLE DB 1.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\OLE_SRC - Employees"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - Employees"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Employees]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\OLE_SRC - Employees.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
+                      name="EmployeeID"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[EmployeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeName]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[EmployeeName]"
+                      name="EmployeeName"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[Site]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[Site]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[Site]"
+                      name="Site"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[ManagerName]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[ManagerName]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].Columns[ManagerName]"
+                      name="ManagerName"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="EmployeeName" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[Site]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Site" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB].ExternalColumns[ManagerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="ManagerName" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeName]"
+                      name="EmployeeName" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[Site]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[Site]"
+                      name="Site" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[ManagerName]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[ManagerName]"
+                      name="ManagerName" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Tâche de flux de données\OLE_SRC - US_State"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="OLE_SRC - US_State"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[US_State]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Tâche de flux de données\OLE_SRC - US_State.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[StateCD]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].ExternalColumns[StateCD]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[StateCD]"
+                      name="StateCD"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].ExternalColumns[Name]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[Name]"
+                      name="Name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].ExternalColumns[Region]"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].Columns[Region]"
+                      name="Region"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].ExternalColumns[StateCD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="StateCD" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].ExternalColumns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Name" />
+                    <externalMetadataColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB].ExternalColumns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="Region" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[StateCD]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[StateCD]"
+                      name="StateCD" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[Name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[Name]"
+                      name="Name" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[Region]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[Region]"
+                      name="Region" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+              endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\Colonne dérivée 1.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
+              endId="Package\Tâche de flux de données\Destination OLE DB 1.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+              endId="Package\Tâche de flux de données\Colonne dérivée 1.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\OLE_SRC - US_State.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
+              endId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\Tâche de flux de données\OLE_SRC - Employees.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="205,42"
+          Id="Package\Tâche de flux de données"
+          TopLeft="130.5,203.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Tâche de flux de données">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="187,42"
+          Id="Package\Tâche de flux de données\OLE_SRC - US_State"
+          TopLeft="210.5,6.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée"
+          TopLeft="22,89" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Tâche de flux de données\Colonne dérivée 1"
+          TopLeft="237.5,91.5" />
+        <NodeLayout
+          Size="194,42"
+          Id="Package\Tâche de flux de données\OLE_SRC - Employees"
+          TopLeft="10.5,8.5" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB1]"
+          TopLeft="104.5,50.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.5"
+              Start="0,0"
+              End="0,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          TopLeft="304,48.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="17.5,43"
+              Start="0,0"
+              End="17.5,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,17.5"
+                    Point2="0,21.5"
+                    Point3="4,21.5" />
+                  <mssgle:LineSegment
+                    End="13.5,21.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="13.5,21.5"
+                    Point2="17.5,21.5"
+                    Point3="17.5,25.5" />
+                  <mssgle:LineSegment
+                    End="17.5,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\Tâche de flux de données\Destination OLE DB"
+          TopLeft="225,209" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée]"
+          TopLeft="321.5,133.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,75.5"
+              Start="0,0"
+              End="-8,68">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,33.75"
+                    Point2="0,37.75"
+                    Point3="-4,37.75" />
+                  <mssgle:LineSegment
+                    End="-4,37.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,37.75"
+                    Point2="-8,37.75"
+                    Point3="-8,41.75" />
+                  <mssgle:LineSegment
+                    End="-8,68" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Tâche de flux de données\Destination OLE DB 1"
+          TopLeft="11,190" />
+        <EdgeLayout
+          Id="Package\Tâche de flux de données.Paths[Sortie de colonne dérivée1]"
+          TopLeft="102.75,131">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,59"
+              Start="0,0"
+              End="0,51.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,51.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\OLE_SRC - US_State">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\OLE_SRC - Employees">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Tâche de flux de données\Destination OLE DB 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
