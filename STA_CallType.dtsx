@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="STA_CallType"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{89134CBB-E943-439E-BF04-75333D717E26}">
+  DTS:VersionBuild="6"
+  DTS:VersionGUID="{BBB72F54-F501-484B-8D4E-7380E9F794F8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -220,7 +220,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[dbo].[CallType]</property>
+                  name="OpenRowset">[CallType]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -427,14 +427,14 @@
         <NodeLayout
           Size="182,42"
           Id="Package\DFT - STA_CallType\OLE_DST - CallType"
-          TopLeft="93,221" />
+          TopLeft="92,221" />
         <NodeLayout
           Size="175,42"
           Id="Package\DFT - STA_CallType\FF_SRC - CallType"
           TopLeft="90,68" />
         <EdgeLayout
           Id="Package\DFT - STA_CallType.Paths[Sortie de source de fichier plat]"
-          TopLeft="180.75,110">
+          TopLeft="180.25,110">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

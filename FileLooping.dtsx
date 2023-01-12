@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{4D39F2D0-515B-4C50-B505-911C0279CEAD}">
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{44E88784-50D0-40B3-969D-6E4635938833}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -212,7 +212,7 @@
                     <property
                       dataType="System.String"
                       description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                      name="OpenRowset">[OLE_DST - STA_DataCall]</property>
+                      name="OpenRowset">[dbo].[DataCall]</property>
                     <property
                       dataType="System.String"
                       description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -686,7 +686,7 @@
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{0CF0C27A-21AC-45DC-8145-ECAE7E9D41D9}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE CallData" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DATACALL" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -764,33 +764,33 @@
         <NodeLayout
           Size="211,42"
           Id="Package\SQL - Empty STA CallData"
-          TopLeft="163.5,87.2457264957264" />
+          TopLeft="163.5,88.2457264957264" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="269,129.245726495726">
+          TopLeft="269,130.245726495726">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="32,76.7542735042736"
+              EndConnector="32,75.7542735042736"
               Start="0,0"
-              End="32,69.2542735042736">
+              End="32,68.2542735042736">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,34.3771367521368" />
+                    End="0,33.8771367521368" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,34.3771367521368"
-                    Point2="0,38.3771367521368"
-                    Point3="4,38.3771367521368" />
+                    Point1="0,33.8771367521368"
+                    Point2="0,37.8771367521368"
+                    Point3="4,37.8771367521368" />
                   <mssgle:LineSegment
-                    End="28,38.3771367521368" />
+                    End="28,37.8771367521368" />
                   <mssgle:CubicBezierSegment
-                    Point1="28,38.3771367521368"
-                    Point2="32,38.3771367521368"
-                    Point3="32,42.3771367521368" />
+                    Point1="28,37.8771367521368"
+                    Point2="32,37.8771367521368"
+                    Point3="32,41.8771367521368" />
                   <mssgle:LineSegment
-                    End="32,69.2542735042736" />
+                    End="32,68.2542735042736" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>

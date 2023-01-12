@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="ODS_CallCharges"
   DTS:PackageType="5"
-  DTS:VersionBuild="3"
-  DTS:VersionGUID="{E5888A49-E1ED-4749-A2F2-63F8718BDFA5}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{CE9D1579-4F1E-48C2-9999-B1436758DDFE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -57,6 +57,82 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="Colonne dérivée"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Call Type"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[RTRIM](#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RTRIM([Call Type])</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB"
               componentClassID="Microsoft.OLEDBDestination"
@@ -578,13 +654,18 @@
           </components>
           <paths>
             <path
+              refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+            <path
               refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de source OLE DB]"
               endId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot]"
               name="Sortie de source OLE DB"
               startId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie Unpivot]"
-              endId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              endId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
               name="Sortie Unpivot"
               startId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot]" />
           </paths>
@@ -634,7 +715,7 @@
         <NodeLayout
           Size="257,42"
           Id="Package\DFT - Load ODS UnpivotCallCharge"
-          TopLeft="69,135" />
+          TopLeft="78,133" />
         <NodeLayout
           Size="264,42"
           Id="Package\SQL - Empty ODS UnpivotCallCharge"
@@ -645,26 +726,26 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24,60.5"
+              EndConnector="33,58.5"
               Start="0,0"
-              End="24,53">
+              End="33,51">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.25" />
+                    End="0,25.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,26.25"
-                    Point2="0,30.25"
-                    Point3="4,30.25" />
+                    Point1="0,25.25"
+                    Point2="0,29.25"
+                    Point3="4,29.25" />
                   <mssgle:LineSegment
-                    End="20,30.25" />
+                    End="29,29.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="20,30.25"
-                    Point2="24,30.25"
-                    Point3="24,34.25" />
+                    Point1="29,29.25"
+                    Point2="33,29.25"
+                    Point3="33,33.25" />
                   <mssgle:LineSegment
-                    End="24,53" />
+                    End="33,51" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -680,33 +761,73 @@
     design-time-name="Package\DFT - Load ODS UnpivotCallCharge">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="270,42"
           Id="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique"
           TopLeft="176.5,142.5" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB"
-          TopLeft="225.5,295.5" />
-        <NodeLayout
           Size="195,42"
           Id="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge"
           TopLeft="211,37" />
+        <NodeLayout
+          Size="177,42"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB"
+          TopLeft="197.5,360.5" />
         <EdgeLayout
-          Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie Unpivot]"
-          TopLeft="312.75,184.5">
+          Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de source OLE DB]"
+          TopLeft="310,79">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,111"
+              EndConnector="0,63.5"
               Start="0,0"
-              End="0,103.5">
+              End="0,56">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,103.5" />
+                    End="0,56" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,20,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="159,42"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée"
+          TopLeft="214,255" />
+        <EdgeLayout
+          Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie Unpivot]"
+          TopLeft="311.5,184.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-18,70.5"
+              Start="0,0"
+              End="-18,63">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,31.25"
+                    Point2="0,35.25"
+                    Point3="-4,35.25" />
+                  <mssgle:LineSegment
+                    End="-14,35.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-14,35.25"
+                    Point2="-18,35.25"
+                    Point3="-18,39.25" />
+                  <mssgle:LineSegment
+                    End="-18,63" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -716,8 +837,8 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de source OLE DB]"
-          TopLeft="310,79">
+          Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de colonne dérivée]"
+          TopLeft="289.75,297">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"

@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="15"
-  DTS:VersionGUID="{5F254366-EE74-4A30-B222-24622D3E9A01}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{7D7BE277-A281-4807-B78D-229035E6187E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,41 +58,47 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT - Load ODS CallData\Conversion de données"
+              refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR"
               componentClassID="Microsoft.DataConvert"
               contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
               description="Conversion de données"
-              name="Conversion de données"
+              name="DCNV -  Date to STR"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT - Load ODS CallData\Conversion de données.Inputs[Entrée de conversion de données]"
+                  refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Inputs[Entrée de conversion de données]"
                   name="Entrée de conversion de données">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT - Load ODS CallData\Conversion de données.Inputs[Entrée de conversion de données].Columns[CallDuration]"
+                      refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Inputs[Entrée de conversion de données].Columns[CallDuration]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="CallDuration"
                       lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallDuration]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Inputs[Entrée de conversion de données].Columns[CallDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CallDate"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie de conversion de données]"
+                  refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données]"
                   exclusionGroup="1"
                   name="Sortie de conversion de données"
-                  synchronousInputId="Package\DFT - Load ODS CallData\Conversion de données.Inputs[Entrée de conversion de données]">
+                  synchronousInputId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Inputs[Entrée de conversion de données]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie de conversion de données].Columns[CallDuration_R]"
+                      refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données].Columns[CallDuration_R]"
                       dataType="decimal"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie de conversion de données].Columns[CallDuration_R]"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données].Columns[CallDuration_R]"
                       name="CallDuration_R"
                       scale="2"
                       truncationRowDisposition="FailComponent">
@@ -108,26 +114,201 @@
                           name="FastParse">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données].Columns[Copy of CallDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données].Columns[Copy of CallDate]"
+                      name="Copy of CallDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie d'erreur de conversion de données]"
+                  refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie d'erreur de conversion de données]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de conversion de données"
-                  synchronousInputId="Package\DFT - Load ODS CallData\Conversion de données.Inputs[Entrée de conversion de données]">
+                  synchronousInputId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Inputs[Entrée de conversion de données]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      refId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV - Bool to STR"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Inputs[Entrée de conversion de données].Columns[SLA]"
+                      cachedDataType="bool"
+                      cachedName="SLA"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie de colonne dérivée].Columns[SLA]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie de conversion de données].Columns[SLA]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="30"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie de conversion de données].Columns[SLA]"
+                      name="SLA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie de colonne dérivée].Columns[SLA]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Conversion de données;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Conversion de données"
+              name="DCNV - STR to Bool"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Inputs[Entrée de conversion de données]"
+                  name="Entrée de conversion de données">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Inputs[Entrée de conversion de données].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="WaitTime"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[WaitTime]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie de conversion de données]"
+                  exclusionGroup="1"
+                  name="Sortie de conversion de données"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie de conversion de données].Columns[WaitTime_R]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie de conversion de données].Columns[WaitTime_R]"
+                      name="WaitTime_R"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie la colonne d'entrée utilisée comme source de données pour la conversion."
+                          name="SourceInputColumnLineageID">#{Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[WaitTime]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indique si la colonne utilise les routines d'analyse les plus rapides, avec des paramètres régionaux neutres."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie d'erreur de conversion de données]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de conversion de données"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Inputs[Entrée de conversion de données]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie d'erreur de conversion de données].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -155,7 +336,7 @@
                       cachedScale="2"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie de conversion de données].Columns[CallDuration_R]"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données].Columns[CallDuration_R]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -163,7 +344,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expression de colonne dérivée"
-                          name="Expression">#{Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie de conversion de données].Columns[CallDuration_R]} / 60</property>
+                          name="Expression">#{Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données].Columns[CallDuration_R]} / 60</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -203,6 +384,168 @@
                       refId="Package\DFT - Load ODS CallData\DER - Change CallDuration from seconds to minutes.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT - Load ODS CallData\DER - Change CallDuration from seconds to minutes.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load ODS CallData\DER - Get Date"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER - Get Date"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS CallData\DER - Get Date.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Get Date.Inputs[Entrée de colonne dérivée].Columns[CallDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CallDate"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - Get Date.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie de colonne dérivée].Columns[Date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="4"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie de colonne dérivée].Columns[Date]"
+                      name="Date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[RIGHT](#{Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]},4)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">RIGHT(CallDate,4)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - Get Date.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load ODS CallData\DER - Searching SLA"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER - Searching SLA"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS CallData\DER - Searching SLA.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Searching SLA.Inputs[Entrée de colonne dérivée].Columns[WaitTime_R]"
+                      cachedDataType="decimal"
+                      cachedName="WaitTime_R"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie de conversion de données].Columns[WaitTime_R]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - Searching SLA.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie de colonne dérivée].Columns[SLA]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie de colonne dérivée].Columns[SLA]"
+                      name="SLA"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">#{Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie de conversion de données].Columns[WaitTime_R]} &gt; 35</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">WaitTime_R &gt; 35</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - Searching SLA.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -317,6 +660,261 @@
               </outputs>
             </component>
             <component
+              refId="Package\DFT - Load ODS CallData\DER - SLA Set up"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
+              name="DER - SLA Set up"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS CallData\DER - SLA Set up.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - SLA Set up.Inputs[Entrée de colonne dérivée].Columns[SLA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SLA"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie de conversion de données].Columns[SLA]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[REPLACE]([REPLACE](#{Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie de conversion de données].Columns[SLA]},"True","Outside SLA"),"False","Within SLA")</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">REPLACE(REPLACE([Conversion de données 2].SLA,"True","Outside SLA"),"False","Within SLA")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DER - SLA Set up.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - SLA Set up.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS CallData\DER - SLA Set up.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - SLA Set up.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - SLA Set up.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DER - SLA Set up.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - SLA Set up.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\DER - SLA Set up.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load ODS CallData\LKP - CallPrice"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
+              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
+              name="LKP - CallPrice"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CallTypePrices]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CallTypePrices]) [refTable]
+where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Years" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Charge" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Call Type" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CallTypeID" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]};#{Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie de colonne dérivée].Columns[Date]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Inputs[Entrée de recherche].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Call Type"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">CallTypeID</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Inputs[Entrée de recherche].Columns[Date]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Date"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie de colonne dérivée].Columns[Date]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Years</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\DFT - Load ODS CallData\LKP - CallPrice.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie de recherche avec correspondance].Columns[Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      length="255"
+                      lineageId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie de recherche avec correspondance].Columns[Charge]"
+                      name="Charge"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Charge</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\DFT - Load ODS CallData\LKP - CallPrice.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\DFT - Load ODS CallData\LKP - CallPrice.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\DFT - Load ODS CallData\OLE_DST - CallData"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
@@ -332,7 +930,7 @@
                 <property
                   dataType="System.String"
                   description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
-                  name="OpenRowset">[OLE_DST - CallData]</property>
+                  name="OpenRowset">[CallData]</property>
                 <property
                   dataType="System.String"
                   description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
@@ -429,14 +1027,6 @@
                       externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
                       lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallDuration]" />
                     <inputColumn
-                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallTimestamp]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="CallTimestamp"
-                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTimestamp]"
-                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]" />
-                    <inputColumn
                       refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallDate]"
                       cachedDataType="wstr"
                       cachedLength="255"
@@ -451,20 +1041,28 @@
                       externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallStart]"
                       lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallStart]" />
                     <inputColumn
-                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallDuration_R]"
-                      cachedDataType="decimal"
-                      cachedName="CallDuration_R"
-                      cachedScale="2"
-                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration_R]"
-                      lineageId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie de conversion de données].Columns[CallDuration_R]" />
-                    <inputColumn
                       refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[Charge]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Charge"
                       externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
-                      lineageId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Charge]" />
+                      lineageId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie de recherche avec correspondance].Columns[Charge]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[Date]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Date"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Date]"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie de colonne dérivée].Columns[Date]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[SLA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SLA"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[SLA]"
+                      lineageId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie de conversion de données].Columns[SLA]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -494,16 +1092,10 @@
                       name="CallAbandoned" />
                     <externalMetadataColumn
                       refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="CallDuration" />
-                    <externalMetadataColumn
-                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTimestamp]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      name="CallTimestamp" />
+                      dataType="numeric"
+                      name="CallDuration"
+                      precision="28"
+                      scale="2" />
                     <externalMetadataColumn
                       refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDate]"
                       dataType="wstr"
@@ -515,17 +1107,22 @@
                       length="5"
                       name="CallStart" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration_R]"
-                      dataType="numeric"
-                      name="CallDuration_R"
-                      precision="28"
-                      scale="2" />
-                    <externalMetadataColumn
                       refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Charge" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Date]"
+                      dataType="wstr"
+                      length="4"
+                      name="Date" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[SLA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="SLA" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -547,185 +1144,6 @@
                       refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\DFT - Load ODS CallData\Recherche"
-              componentClassID="Microsoft.Lookup"
-              contactInfo="Recherche;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;6"
-              description="Joint des colonnes supplémentaires au flux de données en recherchant des valeurs dans une table. Par exemple, joignez la colonne 'id employé' à la table des employés afin d'obtenir la 'date d'embauche' et le 'nom de l'employé'. Nous recommandons cette transformation lorsque la table de recherche peut être stockée en mémoire."
-              name="Recherche"
-              usesDispositions="true"
-              version="6">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from [dbo].[CallTypeTest]</property>
-                <property
-                  dataType="System.String"
-                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
-                  expressionType="Notify"
-                  name="SqlCommandParam"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (select * from [dbo].[CallTypeTest]) [refTable]
-where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
-                  name="ConnectionType"
-                  typeConverter="LookupConnectionType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le type de cache de la table de correspondance."
-                  name="CacheType"
-                  typeConverter="CacheType">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
-                  name="NoMatchBehavior"
-                  typeConverter="LookupNoMatchBehavior">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
-                  name="NoMatchCachePercentage">0</property>
-                <property
-                  dataType="System.Int32"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
-                  name="MaxMemoryUsage">25</property>
-                <property
-                  dataType="System.Int64"
-                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
-                  name="MaxMemoryUsage64">25</property>
-                <property
-                  dataType="System.String"
-                  description="Indique si les métadonnées sont à référencer en format XML."
-                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Years" dataType="DT_WSTR" length="255" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Charge" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Call Type" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CallTypeID" dataType="DT_STR" length="255" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
-                <property
-                  containsID="true"
-                  dataType="System.String"
-                  description="Spécifie la liste d'identificateurs de traçabilité se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
-                  name="ParameterMap">#{Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]};#{Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]};</property>
-                <property
-                  dataType="System.Int32"
-                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
-                  name="TreatDuplicateKeysAsError">false</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\DFT - Load ODS CallData\Recherche.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
-                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
-                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
-                  name="OleDbConnection" />
-              </connections>
-              <inputs>
-                <input
-                  refId="Package\DFT - Load ODS CallData\Recherche.Inputs[Entrée de recherche]"
-                  name="Entrée de recherche">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT - Load ODS CallData\Recherche.Inputs[Entrée de recherche].Columns[Call Type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Call Type"
-                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">CallTypeID</property>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load ODS CallData\Recherche.Inputs[Entrée de recherche].Columns[CallDate]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CallDate"
-                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
-                          name="JoinToReferenceColumn">Years</property>
-                        <property
-                          dataType="System.Null"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn" />
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie de recherche avec correspondance]"
-                  errorOrTruncationOperation="Recherche"
-                  errorRowDisposition="FailComponent"
-                  exclusionGroup="1"
-                  name="Sortie de recherche avec correspondance"
-                  synchronousInputId="Package\DFT - Load ODS CallData\Recherche.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Charge]"
-                      codePage="1252"
-                      dataType="str"
-                      errorOrTruncationOperation="Copie de colonnes"
-                      length="255"
-                      lineageId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie de recherche avec correspondance].Columns[Charge]"
-                      name="Charge"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.String"
-                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
-                          name="CopyFromReferenceColumn">Charge</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie de recherche sans correspondance]"
-                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
-                  exclusionGroup="1"
-                  name="Sortie de recherche sans correspondance"
-                  synchronousInputId="Package\DFT - Load ODS CallData\Recherche.Inputs[Entrée de recherche]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie d'erreur de recherche]"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Sortie d'erreur de recherche"
-                  synchronousInputId="Package\DFT - Load ODS CallData\Recherche.Inputs[Entrée de recherche]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -969,24 +1387,49 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
           <paths>
             <path
               refId="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT - Load ODS CallData\Conversion de données.Inputs[Entrée de conversion de données]"
+              endId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Inputs[Entrée de conversion de données]"
               name="Sortie de colonne dérivée"
               startId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée]" />
             <path
               refId="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée1]"
-              endId="Package\DFT - Load ODS CallData\Recherche.Inputs[Entrée de recherche]"
+              endId="Package\DFT - Load ODS CallData\DER - Get Date.Inputs[Entrée de colonne dérivée]"
               name="Sortie de colonne dérivée"
               startId="Package\DFT - Load ODS CallData\DER - Change CallDuration from seconds to minutes.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée2]"
+              endId="Package\DFT - Load ODS CallData\LKP - CallPrice.Inputs[Entrée de recherche]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT - Load ODS CallData\DER - Get Date.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée3]"
+              endId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Inputs[Entrée de conversion de données]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT - Load ODS CallData\DER - Searching SLA.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée4]"
+              endId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT - Load ODS CallData\DER - SLA Set up.Outputs[Sortie de colonne dérivée]" />
             <path
               refId="Package\DFT - Load ODS CallData.Paths[Sortie de conversion de données]"
               endId="Package\DFT - Load ODS CallData\DER - Change CallDuration from seconds to minutes.Inputs[Entrée de colonne dérivée]"
               name="Sortie de conversion de données"
-              startId="Package\DFT - Load ODS CallData\Conversion de données.Outputs[Sortie de conversion de données]" />
+              startId="Package\DFT - Load ODS CallData\DCNV -  Date to STR.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT - Load ODS CallData.Paths[Sortie de conversion de données1]"
+              endId="Package\DFT - Load ODS CallData\DER - Searching SLA.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Outputs[Sortie de conversion de données]" />
+            <path
+              refId="Package\DFT - Load ODS CallData.Paths[Sortie de conversion de données2]"
+              endId="Package\DFT - Load ODS CallData\DER - SLA Set up.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de conversion de données"
+              startId="Package\DFT - Load ODS CallData\DCNV - Bool to STR.Outputs[Sortie de conversion de données]" />
             <path
               refId="Package\DFT - Load ODS CallData.Paths[Sortie de recherche avec correspondance]"
-              endId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB]"
+              endId="Package\DFT - Load ODS CallData\DCNV - STR to Bool.Inputs[Entrée de conversion de données]"
               name="Sortie de recherche avec correspondance"
-              startId="Package\DFT - Load ODS CallData\Recherche.Outputs[Sortie de recherche avec correspondance]" />
+              startId="Package\DFT - Load ODS CallData\LKP - CallPrice.Outputs[Sortie de recherche avec correspondance]" />
             <path
               refId="Package\DFT - Load ODS CallData.Paths[Sortie de source OLE DB]"
               endId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Inputs[Entrée de colonne dérivée]"
@@ -1010,7 +1453,7 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{89CEBA4C-71C2-484C-A1D0-6315D66908CD}"
-          SQLTask:SqlStatementSource="TRUNCATE TABLE ODSCALLDATA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="TRUNCATE TABLE CALLDATA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
@@ -1073,91 +1516,53 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
     design-time-name="Package\DFT - Load ODS CallData">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="293,42"
-          Id="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime"
-          TopLeft="70.25,119.25" />
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="179,42"
           Id="Package\DFT - Load ODS CallData\SRC - OLE DataCall"
-          TopLeft="108.5,39.5" />
-        <NodeLayout
-          Size="181,42"
-          Id="Package\DFT - Load ODS CallData\OLE_DST - CallData"
-          TopLeft="179.25,551.75" />
-        <NodeLayout
-          Size="132,42"
-          Id="Package\DFT - Load ODS CallData\Recherche"
-          TopLeft="137.5,383.75" />
+          TopLeft="122.5,0.5" />
         <NodeLayout
           Size="336,46"
           Id="Package\DFT - Load ODS CallData\DER - Change CallDuration from seconds to minutes"
-          TopLeft="42.5,281.25" />
+          TopLeft="60.5,300.25" />
         <NodeLayout
-          Size="195,42"
-          Id="Package\DFT - Load ODS CallData\Conversion de données"
-          TopLeft="105,195" />
-        <EdgeLayout
-          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée]"
-          TopLeft="216.75,161.25">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-14.25,33.75"
-              Start="0,0"
-              End="-14.25,26.25">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,12.875" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.875"
-                    Point2="0,16.875"
-                    Point3="-4,16.875" />
-                  <mssgle:LineSegment
-                    End="-10.25,16.875" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-10.25,16.875"
-                    Point2="-14.25,16.875"
-                    Point3="-14.25,20.875" />
-                  <mssgle:LineSegment
-                    End="-14.25,26.25" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="293,42"
+          Id="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime"
+          TopLeft="70.25,131.25" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\DFT - Load ODS CallData\DCNV -  Date to STR"
+          TopLeft="127,207" />
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DFT - Load ODS CallData\OLE_DST - CallData"
+          TopLeft="137.75,834.25" />
         <EdgeLayout
           Id="Package\DFT - Load ODS CallData.Paths[Sortie de conversion de données]"
-          TopLeft="202.5,237">
+          TopLeft="218.5,249">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8,44.25"
+              EndConnector="10,51.25"
               Start="0,0"
-              End="8,36.75">
+              End="10,43.75">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.125" />
+                    End="0,21.625" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.125"
-                    Point2="0,22.125"
-                    Point3="4,22.125" />
+                    Point1="0,21.625"
+                    Point2="0,25.625"
+                    Point3="4,25.625" />
                   <mssgle:LineSegment
-                    End="4,22.125" />
+                    End="6,25.625" />
                   <mssgle:CubicBezierSegment
-                    Point1="4,22.125"
-                    Point2="8,22.125"
-                    Point3="8,26.125" />
+                    Point1="6,25.625"
+                    Point2="10,25.625"
+                    Point3="10,29.625" />
                   <mssgle:LineSegment
-                    End="8,36.75" />
+                    End="10,43.75" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1167,19 +1572,19 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée1]"
-          TopLeft="207,327.25">
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée]"
+          TopLeft="217.625,173.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,56.5"
+              EndConnector="0,33.75"
               Start="0,0"
-              End="0,49">
+              End="0,26.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,49" />
+                    End="0,26.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1190,30 +1595,48 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT - Load ODS CallData.Paths[Sortie de source OLE DB]"
-          TopLeft="198,81.5">
+          TopLeft="214.375,42.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="18.75,37.75"
+              EndConnector="0,88.75"
               Start="0,0"
-              End="18.75,30.25">
+              End="0,81.25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,14.875" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,14.875"
-                    Point2="0,18.875"
-                    Point3="4,18.875" />
+                    End="0,81.25" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\DFT - Load ODS CallData\LKP - CallPrice"
+          TopLeft="161.5,438.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\DFT - Load ODS CallData\DER - Get Date"
+          TopLeft="149,369" />
+        <EdgeLayout
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée1]"
+          TopLeft="227.75,346.25">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,22.75"
+              Start="0,0"
+              End="0,15.25">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="14.75,18.875" />
-                  <mssgle:CubicBezierSegment
-                    Point1="14.75,18.875"
-                    Point2="18.75,18.875"
-                    Point3="18.75,22.875" />
-                  <mssgle:LineSegment
-                    End="18.75,30.25" />
+                    End="0,15.25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1223,38 +1646,178 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\DFT - Load ODS CallData.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="203.5,425.75">
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée2]"
+          TopLeft="227,411">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="66.25,126"
+              EndConnector="11,27.5"
               Start="0,0"
-              End="66.25,118.5">
+              End="11,20">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,59" />
+                    End="0,9.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,59"
-                    Point2="0,63"
-                    Point3="4,63" />
+                    Point1="0,9.75"
+                    Point2="0,13.75"
+                    Point3="4,13.75" />
                   <mssgle:LineSegment
-                    End="62.25,63" />
+                    End="7,13.75" />
                   <mssgle:CubicBezierSegment
-                    Point1="62.25,63"
-                    Point2="66.25,63"
-                    Point3="66.25,67" />
+                    Point1="7,13.75"
+                    Point2="11,13.75"
+                    Point3="11,17.75" />
                   <mssgle:LineSegment
-                    End="66.25,118.5" />
+                    End="11,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="179,42"
+          Id="Package\DFT - Load ODS CallData\DCNV - STR to Bool"
+          TopLeft="150,519" />
+        <EdgeLayout
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="238.75,480.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,38.5"
+              Start="0,0"
+              End="0,31">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-58.55201171875,68,183.3540234375,11.609375"
+              BoundingBox="-91.67701171875,9.6953125,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="185,42"
+          Id="Package\DFT - Load ODS CallData\DER - Searching SLA"
+          TopLeft="154,590" />
+        <EdgeLayout
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de conversion de données1]"
+          TopLeft="243,561">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="167,42"
+          Id="Package\DFT - Load ODS CallData\DER - SLA Set up"
+          TopLeft="144,756" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\DFT - Load ODS CallData\DCNV - Bool to STR"
+          TopLeft="141,678" />
+        <EdgeLayout
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée3]"
+          TopLeft="246.5,632">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16,46"
+              Start="0,0"
+              End="-16,38.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19"
+                    Point2="0,23"
+                    Point3="-4,23" />
+                  <mssgle:LineSegment
+                    End="-12,23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12,23"
+                    Point2="-16,23"
+                    Point3="-16,27" />
+                  <mssgle:LineSegment
+                    End="-16,38.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de conversion de données2]"
+          TopLeft="229,720">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée4]"
+          TopLeft="227.875,798">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.25"
+              Start="0,0"
+              End="0,28.75">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.75" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,6.375,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1288,7 +1851,7 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Load ODS CallData\Recherche">
+    design-time-name="Package\DFT - Load ODS CallData\LKP - CallPrice">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
@@ -1298,7 +1861,7 @@ where [refTable].[CallTypeID] = ? and [refTable].[Years] = ?</property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[CallTypeTest]</Value>
+          type="q3:string">[dbo].[CallTypePrices]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
