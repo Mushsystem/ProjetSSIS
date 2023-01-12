@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="ODS_CallCharges"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{84C02E40-A8D4-48AB-B605-8339EF37F121}">
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{E5888A49-E1ED-4749-A2F2-63F8718BDFA5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -44,13 +44,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Tâche de flux de données"
+      DTS:refId="Package\DFT - Load ODS UnpivotCallCharge"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
       DTS:DTSID="{9f8b5f46-4bd1-4882-9c3d-8fa308693bfe}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Tâche de flux de données"
+      DTS:ObjectName="DFT - Load ODS UnpivotCallCharge"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -58,7 +58,7 @@
           version="1">
           <components>
             <component
-              refId="Package\Tâche de flux de données\Destination OLE DB"
+              refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
@@ -115,7 +115,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tâche de flux de données\Destination OLE DB.Connections[OleDbConnection]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
                   connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -123,51 +123,51 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Charge]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Charge]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Charge"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
-                      lineageId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]" />
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Call Type]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Call Type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Type"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
-                      lineageId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]" />
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]" />
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Year]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Year]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Year"
-                      externalMetadataColumnId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
-                      lineageId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]" />
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
                       dataType="wstr"
                       length="255"
                       name="Years" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Charge" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
                       codePage="1252"
                       dataType="str"
                       length="255"
@@ -177,22 +177,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -201,7 +201,7 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tâche de flux de données\OLE_SRC - CallCharge"
+              refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
@@ -250,7 +250,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Connections[OleDbConnection]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
                   connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -258,93 +258,93 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Type ]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Type ]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type ]"
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type ]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Type ]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Type ]"
                       name="Call Type "
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2018)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2018)]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2018)]"
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2018)]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2018)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2018)]"
                       name="Call Charges (2018)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2019)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2019)]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2019)]"
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2019)]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2019)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2019)]"
                       name="Call Charges (2019)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2020)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2020)]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2020)]"
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2020)]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2020)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2020)]"
                       name="Call Charges (2020)"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2021)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2021)]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2021)]"
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2021)]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2021)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2021)]"
                       name="Call Charges (2021)"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type ]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type ]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Call Type " />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2018)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2018)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Call Charges (2018)" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2019)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2019)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Call Charges (2019)" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2020)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2020)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Call Charges (2020)" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2021)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].ExternalColumns[Call Charges (2021)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
@@ -352,55 +352,55 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type ]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type ]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type ]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type ]"
                       name="Call Type " />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2018)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2018)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2018)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2018)]"
                       name="Call Charges (2018)" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2019)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2019)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2019)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2019)]"
                       name="Call Charges (2019)" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2020)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2020)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2020)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2020)]"
                       name="Call Charges (2020)" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2021)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2021)]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2021)]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Charges (2021)]"
                       name="Call Charges (2021)" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -409,30 +409,30 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique"
+              refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique"
               componentClassID="Microsoft.UnPivot"
               contactInfo="Supprimer le tableau croisé dynamique;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
               description="Développe un flux de données non normalisé en une version plus normalisée. Les valeurs provenant de plusieurs colonnes d'un même enregistrement sont développées en plusieurs enregistrements dans une colonne unique. Par exemple, développez une table qui répertorie les résultats d'athlétisme avec une colonne pour chaque discipline en plusieurs enregistrements et une seule colonne de résultats."
               name="Supprimer le tableau croisé dynamique">
               <inputs>
                 <input
-                  refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot]"
                   hasSideEffects="true"
                   name="Entrée Unpivot">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Type ]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Type ]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Type "
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Type ]">
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Type ]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]}</property>
                         <property
                           dataType="System.Null"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -441,18 +441,18 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2018)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2018)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Charges (2018)"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2018)]">
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2018)]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -461,18 +461,18 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2019)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2019)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Charges (2019)"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2019)]">
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2019)]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -481,18 +481,18 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2020)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2020)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Charges (2020)"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2020)]">
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2020)]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -501,18 +501,18 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2021)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2021)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Charges (2021)"
-                      lineageId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2021)]">
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB].Columns[Call Charges (2021)]">
                       <properties>
                         <property
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -526,14 +526,14 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot]"
                   name="Sortie Unpivot">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]"
                       name="Year">
                       <properties>
                         <property
@@ -543,11 +543,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]"
                       name="Charge">
                       <properties>
                         <property
@@ -557,11 +557,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
                       name="Call Type">
                       <properties>
                         <property
@@ -578,20 +578,47 @@
           </components>
           <paths>
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-              endId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot]"
+              refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot]"
               name="Sortie de source OLE DB"
-              startId="Package\Tâche de flux de données\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB]" />
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie Unpivot]"
-              endId="Package\Tâche de flux de données\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie Unpivot]"
+              endId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
               name="Sortie Unpivot"
-              startId="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot]" />
+              startId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Empty ODS UnpivotCallCharge"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{46AD0F98-7D15-4832-882B-C0625F5ABA8E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Empty ODS UnpivotCallCharge"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{D35BE413-4BF3-4A4D-96A1-94132A3B96C5}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE UNPIVOTCALLCHARGE" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{A5D3612A-DEE1-4BE9-8EA4-1CA7247102BD}"
+      DTS:From="Package\SQL - Empty ODS UnpivotCallCharge"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - Load ODS UnpivotCallCharge" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -603,33 +630,71 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="205,42"
-          Id="Package\Tâche de flux de données"
-          TopLeft="68,110" />
+          Size="257,42"
+          Id="Package\DFT - Load ODS UnpivotCallCharge"
+          TopLeft="69,135" />
+        <NodeLayout
+          Size="264,42"
+          Id="Package\SQL - Empty ODS UnpivotCallCharge"
+          TopLeft="41.5,32.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="173.5,74.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="24,60.5"
+              Start="0,0"
+              End="24,53">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.25"
+                    Point2="0,30.25"
+                    Point3="4,30.25" />
+                  <mssgle:LineSegment
+                    End="20,30.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="20,30.25"
+                    Point2="24,30.25"
+                    Point3="24,34.25" />
+                  <mssgle:LineSegment
+                    End="24,53" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Tâche de flux de données">
+    design-time-name="Package\DFT - Load ODS UnpivotCallCharge">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="270,42"
-          Id="Package\Tâche de flux de données\Supprimer le tableau croisé dynamique"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique"
           TopLeft="176.5,142.5" />
         <NodeLayout
           Size="177,42"
-          Id="Package\Tâche de flux de données\Destination OLE DB"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB"
           TopLeft="225.5,295.5" />
         <NodeLayout
           Size="195,42"
-          Id="Package\Tâche de flux de données\OLE_SRC - CallCharge"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge"
           TopLeft="211,37" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie Unpivot]"
+          Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie Unpivot]"
           TopLeft="312.75,184.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -651,7 +716,7 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de source OLE DB]"
           TopLeft="310,79">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -676,7 +741,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\Destination OLE DB">
+    design-time-name="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
