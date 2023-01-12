@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="ODS_CallCharges"
   DTS:PackageType="5"
-  DTS:VersionBuild="8"
-  DTS:VersionGUID="{A345DD71-18D2-4CDB-9907-E58FC6C649E1}">
+  DTS:VersionBuild="11"
+  DTS:VersionGUID="{523427A9-96FA-4643-960C-7B2B8AD5304F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -58,27 +58,27 @@
           version="1">
           <components>
             <component
-              refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée"
+              refId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
               description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
-              name="Colonne dérivée"
+              name="DER - Remove RightSpace"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Inputs[Entrée de colonne dérivée]"
                   description="Entrée de la transformation de colonnes dérivées"
                   name="Entrée de colonne dérivée">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée].Columns[Call Type]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Inputs[Entrée de colonne dérivée].Columns[Call Type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Type"
                       errorOrTruncationOperation="Calcul"
                       errorRowDisposition="FailComponent"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Call Type]"
                       truncationRowDisposition="FailComponent"
                       usageType="readWrite">
                       <properties>
@@ -86,7 +86,7 @@
                           containsID="true"
                           dataType="System.String"
                           description="Expression de colonne dérivée"
-                          name="Expression">[RTRIM](#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]})</property>
+                          name="Expression">[RTRIM](#{Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Call Type]})</property>
                         <property
                           containsID="true"
                           dataType="System.String"
@@ -101,31 +101,31 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Outputs[Sortie de colonne dérivée]"
                   description="Sortie par défaut de la transformation de colonnes dérivées"
                   exclusionGroup="1"
                   name="Sortie de colonne dérivée"
-                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Inputs[Entrée de colonne dérivée]">
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Outputs[Sortie d'erreur de colonne dérivée]"
                   description="Sortie d'erreur de la transformation de colonnes dérivées"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de colonne dérivée"
-                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Inputs[Entrée de colonne dérivée]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -134,11 +134,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB"
+              refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
               description="Destination OLE DB"
-              name="Destination OLE DB"
+              name="OLE_DST - UnpivotCallCharge"
               usesDispositions="true"
               version="4">
               <properties>
@@ -191,7 +191,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Connections[OleDbConnection]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
                   connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -199,51 +199,51 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB]"
                   errorOrTruncationOperation="Insérer"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="Entrée de destination OLE DB">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Charge]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].Columns[Charge]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Charge"
-                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]" />
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Charge]" />
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Call Type]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].Columns[Call Type]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
                       cachedName="Call Type"
-                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]" />
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Call Type]" />
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].Columns[Year]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].Columns[Year]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="Year"
-                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]" />
+                      externalMetadataColumnId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Year]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].ExternalColumns[Years]"
                       dataType="wstr"
                       length="255"
                       name="Years" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Charge" />
                     <externalMetadataColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
                       codePage="1252"
                       dataType="str"
                       length="255"
@@ -253,22 +253,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Outputs[Sortie d'erreur de destination OLE DB]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de destination OLE DB"
-                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]">
+                  synchronousInputId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -485,19 +485,19 @@
               </outputs>
             </component>
             <component
-              refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique"
+              refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge"
               componentClassID="Microsoft.UnPivot"
               contactInfo="Supprimer le tableau croisé dynamique;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
               description="Développe un flux de données non normalisé en une version plus normalisée. Les valeurs provenant de plusieurs colonnes d'un même enregistrement sont développées en plusieurs enregistrements dans une colonne unique. Par exemple, développez une table qui répertorie les résultats d'athlétisme avec une colonne pour chaque discipline en plusieurs enregistrements et une seule colonne de résultats."
-              name="Supprimer le tableau croisé dynamique">
+              name="UPVT - CallCharge">
               <inputs>
                 <input
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Inputs[Entrée Unpivot]"
                   hasSideEffects="true"
                   name="Entrée Unpivot">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Type ]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Inputs[Entrée Unpivot].Columns[Call Type ]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
@@ -508,7 +508,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Call Type]}</property>
                         <property
                           dataType="System.Null"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -517,7 +517,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2018)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Inputs[Entrée Unpivot].Columns[Call Charges (2018)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
@@ -528,7 +528,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -537,7 +537,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2019)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Inputs[Entrée Unpivot].Columns[Call Charges (2019)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
@@ -548,7 +548,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -557,7 +557,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2020)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Inputs[Entrée Unpivot].Columns[Call Charges (2020)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
@@ -568,7 +568,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -577,7 +577,7 @@
                       </properties>
                     </inputColumn>
                     <inputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot].Columns[Call Charges (2021)]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Inputs[Entrée Unpivot].Columns[Call Charges (2021)]"
                       cachedCodepage="1252"
                       cachedDataType="str"
                       cachedLength="255"
@@ -588,7 +588,7 @@
                           containsID="true"
                           dataType="System.Int32"
                           description="ID de traçabilité de la colonne de sortie qui doit recevoir la valeur de cette colonne d'entrée. Ou -1 si la valeur de la colonne n'est pas utilisée dans les lignes de sortie."
-                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]}</property>
+                          name="DestinationColumn">#{Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Charge]}</property>
                         <property
                           dataType="System.String"
                           description="Spécifie la valeur enregistrée dans la colonne PivotKey de la ligne de sortie."
@@ -602,14 +602,14 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot]"
+                  refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot]"
                   name="Sortie Unpivot">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Year]"
                       dataType="wstr"
                       length="255"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Year]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Year]"
                       name="Year">
                       <properties>
                         <property
@@ -619,11 +619,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Charge]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Charge]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Charge]"
                       name="Charge">
                       <properties>
                         <property
@@ -633,11 +633,11 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
+                      refId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Call Type]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot].Columns[Call Type]"
+                      lineageId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot].Columns[Call Type]"
                       name="Call Type">
                       <properties>
                         <property
@@ -655,19 +655,19 @@
           <paths>
             <path
               refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB.Inputs[Entrée de destination OLE DB]"
+              endId="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge.Inputs[Entrée de destination OLE DB]"
               name="Sortie de colonne dérivée"
-              startId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Outputs[Sortie de colonne dérivée]" />
+              startId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Outputs[Sortie de colonne dérivée]" />
             <path
               refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de source OLE DB]"
-              endId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Inputs[Entrée Unpivot]"
+              endId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Inputs[Entrée Unpivot]"
               name="Sortie de source OLE DB"
               startId="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge.Outputs[Sortie de source OLE DB]" />
             <path
               refId="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie Unpivot]"
-              endId="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              endId="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace.Inputs[Entrée de colonne dérivée]"
               name="Sortie Unpivot"
-              startId="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique.Outputs[Sortie Unpivot]" />
+              startId="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge.Outputs[Sortie Unpivot]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -767,26 +767,26 @@
           Id="Package\DFT - Load ODS UnpivotCallCharge\OLE_SRC - CallCharge"
           TopLeft="211,37" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB"
+          Size="231,42"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge"
           TopLeft="197.5,360.5" />
         <NodeLayout
-          Size="159,42"
-          Id="Package\DFT - Load ODS UnpivotCallCharge\Colonne dérivée"
+          Size="213,42"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\DER - Remove RightSpace"
           TopLeft="214,255" />
         <NodeLayout
-          Size="270,42"
-          Id="Package\DFT - Load ODS UnpivotCallCharge\Supprimer le tableau croisé dynamique"
-          TopLeft="176.5,142.5" />
+          Size="173,42"
+          Id="Package\DFT - Load ODS UnpivotCallCharge\UPVT - CallCharge"
+          TopLeft="206.5,142.5" />
         <EdgeLayout
           Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie Unpivot]"
-          TopLeft="311.5,184.5">
+          TopLeft="293,184.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-18,70.5"
+              EndConnector="27.5,70.5"
               Start="0,0"
-              End="-18,63">
+              End="27.5,63">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -795,15 +795,15 @@
                   <mssgle:CubicBezierSegment
                     Point1="0,31.25"
                     Point2="0,35.25"
-                    Point3="-4,35.25" />
+                    Point3="4,35.25" />
                   <mssgle:LineSegment
-                    End="-14,35.25" />
+                    End="23.5,35.25" />
                   <mssgle:CubicBezierSegment
-                    Point1="-14,35.25"
-                    Point2="-18,35.25"
-                    Point3="-18,39.25" />
+                    Point1="23.5,35.25"
+                    Point2="27.5,35.25"
+                    Point3="27.5,39.25" />
                   <mssgle:LineSegment
-                    End="-18,63" />
+                    End="27.5,63" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -814,31 +814,43 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de source OLE DB]"
-          TopLeft="310,79">
+          TopLeft="308.5,79">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,63.5"
+              EndConnector="-15.5,63.5"
               Start="0,0"
-              End="0,56">
+              End="-15.5,56">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,56" />
+                    End="0,27.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,27.75"
+                    Point2="0,31.75"
+                    Point3="-4,31.75" />
+                  <mssgle:LineSegment
+                    End="-11.5,31.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-11.5,31.75"
+                    Point2="-15.5,31.75"
+                    Point3="-15.5,35.75" />
+                  <mssgle:LineSegment
+                    End="-15.5,56" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8,20,16,16"
+              BoundingBox="-15.75,36.75,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DFT - Load ODS UnpivotCallCharge.Paths[Sortie de colonne dérivée]"
-          TopLeft="289.75,297">
+          TopLeft="316.75,297">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -862,7 +874,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Load ODS UnpivotCallCharge\Destination OLE DB">
+    design-time-name="Package\DFT - Load ODS UnpivotCallCharge\OLE_DST - UnpivotCallCharge">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

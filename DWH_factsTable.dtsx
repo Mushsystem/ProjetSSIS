@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="16"
-  DTS:VersionGUID="{619D32C4-0CF0-466C-A54B-60990939FF23}">
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{9BA561D9-AD2A-44F0-8C1B-2B038B4848D5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -45,6 +45,550 @@
         <pipeline
           version="1">
           <components>
+            <component
+              refId="Package\DFT - Load FactsTable\ALL - Error"
+              componentClassID="Microsoft.UnionAll"
+              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
+              name="ALL - Error"
+              version="1">
+              <inputs>
+                <input
+                  refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1]"
+                  name="Unir tout entrée 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[Charge]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Charge"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Charge]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Charge]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Call Type"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Call Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EmployeeID"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="WaitTime"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[CallStart]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CallStart"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallStart]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallStart]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[CallDuration]"
+                      cachedDataType="numeric"
+                      cachedName="CallDuration"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[CallDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CallDate"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[Date]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Date"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[SLA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SLA"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLA]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[SLA]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[Reject_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Reject_Date"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[Reject_Package]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Reject_Package"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_Package]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[Reject_Task]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Reject_Task"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_Task]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1].Columns[Reject_message]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Reject_message"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_message]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_message]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1]"
+                  hasSideEffects="true"
+                  name="Entrée Union All 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[Charge]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Charge"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Charge]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Charge]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Call Type"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Call Type]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EmployeeID"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="WaitTime"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallAbandoned"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[CallStart]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CallStart"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallStart]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallStart]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[CallDuration]"
+                      cachedDataType="numeric"
+                      cachedName="CallDuration"
+                      cachedPrecision="28"
+                      cachedScale="2"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[CallDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CallDate"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDate]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDate]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[Date]"
+                      cachedDataType="wstr"
+                      cachedLength="4"
+                      cachedName="Date"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[SLA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="SLA"
+                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLA]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[SLA]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[Reject_Date]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="Reject_Date"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_Date]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[Reject_Package]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Reject_Package"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_Package]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[Reject_Task]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Reject_Task"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_Task]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]}</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1].Columns[Reject_message]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Reject_message"
+                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_message]">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="ID de traçabilité de colonne de sortie"
+                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_message]}</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 2]"
+                  dangling="true"
+                  hasSideEffects="true"
+                  name="Entrée Union All 2">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1]"
+                  name="Unir tout sortie 1">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Charge]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Charge]"
+                      name="Charge" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Call Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Call Type]"
+                      name="Call Type" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
+                      name="EmployeeID" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[WaitTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[WaitTime]"
+                      name="WaitTime" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
+                      name="CallAbandoned" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallStart]"
+                      dataType="wstr"
+                      length="5"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallStart]"
+                      name="CallStart" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDuration]"
+                      dataType="numeric"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDuration]"
+                      name="CallDuration"
+                      precision="28"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDate]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDate]"
+                      name="CallDate" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Date]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Date]"
+                      name="Date" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[SLA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[SLA]"
+                      name="SLA" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]"
+                      name="Reject_Date" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]"
+                      name="Reject_Package" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]"
+                      name="Reject_Task" />
+                    <outputColumn
+                      refId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_message]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_message]"
+                      name="Reject_message" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
             <component
               refId="Package\DFT - Load FactsTable\DER -Error Info(CallType)"
               componentClassID="Microsoft.DerivedColumn"
@@ -1105,7 +1649,7 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="Charge"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[Charge]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Charge]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Charge]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[Call Type]"
                       cachedCodepage="1252"
@@ -1113,7 +1657,7 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="Call Type"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Call Type]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Call Type]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[EmployeeID]"
                       cachedCodepage="1252"
@@ -1121,7 +1665,7 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="EmployeeID"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[WaitTime]"
                       cachedCodepage="1252"
@@ -1129,7 +1673,7 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="WaitTime"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[WaitTime]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[WaitTime]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[WaitTime]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[CallAbandoned]"
                       cachedCodepage="1252"
@@ -1137,14 +1681,14 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="CallAbandoned"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[CallAbandoned]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[CallStart]"
                       cachedDataType="wstr"
                       cachedLength="5"
                       cachedName="CallStart"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[CallStart]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallStart]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallStart]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[CallDuration]"
                       cachedDataType="numeric"
@@ -1152,21 +1696,21 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedPrecision="28"
                       cachedScale="2"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDuration]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDuration]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[CallDate]"
                       cachedDataType="wstr"
                       cachedLength="255"
                       cachedName="CallDate"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDate]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDate]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[CallDate]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[Date]"
                       cachedDataType="wstr"
                       cachedLength="4"
                       cachedName="Date"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[Date]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Date]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Date]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[SLA]"
                       cachedCodepage="1252"
@@ -1174,13 +1718,13 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="30"
                       cachedName="SLA"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[SLA]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[SLA]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[SLA]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[Reject_Date]"
                       cachedDataType="dbTimeStamp"
                       cachedName="Reject_Date"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[Reject_Date]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[Reject_Package]"
                       cachedCodepage="1252"
@@ -1188,7 +1732,7 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="Reject_Package"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[Reject_Package]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[Reject_Task]"
                       cachedCodepage="1252"
@@ -1196,7 +1740,7 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="Reject_Task"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[Reject_Task]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]" />
                     <inputColumn
                       refId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].Columns[Reject_message]"
                       cachedCodepage="1252"
@@ -1204,7 +1748,7 @@ where [refTable].[EmployeeID] = ?</property>
                       cachedLength="255"
                       cachedName="Reject_message"
                       externalMetadataColumnId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB].ExternalColumns[Reject_message]"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_message]" />
+                      lineageId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1].Columns[Reject_message]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1634,560 +2178,16 @@ where [refTable].[EmployeeID] = ?</property>
                 </output>
               </outputs>
             </component>
-            <component
-              refId="Package\DFT - Load FactsTable\Union ALL Error"
-              componentClassID="Microsoft.UnionAll"
-              contactInfo="Unir tout;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
-              description="Combine des lignes de plusieurs flux de données sans effectuer de tri. Par exemple, rajoutez des lignes à un flux de données après correction des erreurs. Si le tri est important, nous recommandons l'utilisation de la transformation de fusion."
-              name="Union ALL Error"
-              version="1">
-              <inputs>
-                <input
-                  refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1]"
-                  name="Unir tout entrée 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[Charge]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Charge"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Charge]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Charge]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[Call Type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Call Type"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Call Type]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[EmployeeID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="EmployeeID"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[WaitTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="WaitTime"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[CallAbandoned]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="CallAbandoned"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[CallStart]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CallStart"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallStart]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallStart]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[CallDuration]"
-                      cachedDataType="numeric"
-                      cachedName="CallDuration"
-                      cachedPrecision="28"
-                      cachedScale="2"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[CallDate]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CallDate"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[Date]"
-                      cachedDataType="wstr"
-                      cachedLength="4"
-                      cachedName="Date"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Date]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[SLA]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="SLA"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLA]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[SLA]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[Reject_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Reject_Date"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_Date]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[Reject_Package]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Reject_Package"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_Package]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[Reject_Task]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Reject_Task"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_Task]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1].Columns[Reject_message]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Reject_message"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée].Columns[Reject_message]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_message]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1]"
-                  hasSideEffects="true"
-                  name="Entrée Union All 1">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[Charge]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Charge"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Charge]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Charge]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[Call Type]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Call Type"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Call Type]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Call Type]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[EmployeeID]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="EmployeeID"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[EmployeeID]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[WaitTime]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="WaitTime"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[WaitTime]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[WaitTime]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[CallAbandoned]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="CallAbandoned"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[CallStart]"
-                      cachedDataType="wstr"
-                      cachedLength="5"
-                      cachedName="CallStart"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallStart]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallStart]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[CallDuration]"
-                      cachedDataType="numeric"
-                      cachedName="CallDuration"
-                      cachedPrecision="28"
-                      cachedScale="2"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDuration]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDuration]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[CallDate]"
-                      cachedDataType="wstr"
-                      cachedLength="255"
-                      cachedName="CallDate"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[CallDate]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDate]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[Date]"
-                      cachedDataType="wstr"
-                      cachedLength="4"
-                      cachedName="Date"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[Date]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Date]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[SLA]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="30"
-                      cachedName="SLA"
-                      lineageId="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData.Outputs[Sortie de source OLE DB].Columns[SLA]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[SLA]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[Reject_Date]"
-                      cachedDataType="dbTimeStamp"
-                      cachedName="Reject_Date"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_Date]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[Reject_Package]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Reject_Package"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_Package]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[Reject_Task]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Reject_Task"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_Task]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]}</property>
-                      </properties>
-                    </inputColumn>
-                    <inputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1].Columns[Reject_message]"
-                      cachedCodepage="1252"
-                      cachedDataType="str"
-                      cachedLength="255"
-                      cachedName="Reject_message"
-                      lineageId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée].Columns[Reject_message]">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.Int32"
-                          description="ID de traçabilité de colonne de sortie"
-                          name="OutputColumnLineageID">#{Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_message]}</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-                <input
-                  refId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 2]"
-                  dangling="true"
-                  hasSideEffects="true"
-                  name="Entrée Union All 2">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1]"
-                  name="Unir tout sortie 1">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Charge]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Charge]"
-                      name="Charge" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Call Type]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Call Type]"
-                      name="Call Type" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[EmployeeID]"
-                      name="EmployeeID" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[WaitTime]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[WaitTime]"
-                      name="WaitTime" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallAbandoned]"
-                      name="CallAbandoned" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallStart]"
-                      dataType="wstr"
-                      length="5"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallStart]"
-                      name="CallStart" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDuration]"
-                      dataType="numeric"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDuration]"
-                      name="CallDuration"
-                      precision="28"
-                      scale="2" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDate]"
-                      dataType="wstr"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[CallDate]"
-                      name="CallDate" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Date]"
-                      dataType="wstr"
-                      length="4"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Date]"
-                      name="Date" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[SLA]"
-                      codePage="1252"
-                      dataType="str"
-                      length="30"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[SLA]"
-                      name="SLA" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]"
-                      dataType="dbTimeStamp"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Date]"
-                      name="Reject_Date" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Package]"
-                      name="Reject_Package" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_Task]"
-                      name="Reject_Task" />
-                    <outputColumn
-                      refId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_message]"
-                      codePage="1252"
-                      dataType="str"
-                      length="255"
-                      lineageId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1].Columns[Reject_message]"
-                      name="Reject_message" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
           </components>
           <paths>
             <path
               refId="Package\DFT - Load FactsTable.Paths[Sortie de colonne dérivée]"
-              endId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Unir tout entrée 1]"
+              endId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Unir tout entrée 1]"
               name="Sortie de colonne dérivée"
               startId="Package\DFT - Load FactsTable\DER -Error Info(Employee).Outputs[Sortie de colonne dérivée]" />
             <path
               refId="Package\DFT - Load FactsTable.Paths[Sortie de colonne dérivée1]"
-              endId="Package\DFT - Load FactsTable\Union ALL Error.Inputs[Entrée Union All 1]"
+              endId="Package\DFT - Load FactsTable\ALL - Error.Inputs[Entrée Union All 1]"
               name="Sortie de colonne dérivée"
               startId="Package\DFT - Load FactsTable\DER -Error Info(CallType).Outputs[Sortie de colonne dérivée]" />
             <path
@@ -2219,7 +2219,7 @@ where [refTable].[EmployeeID] = ?</property>
               refId="Package\DFT - Load FactsTable.Paths[Unir tout sortie 1]"
               endId="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject.Inputs[Entrée de destination OLE DB]"
               name="Unir tout sortie 1"
-              startId="Package\DFT - Load FactsTable\Union ALL Error.Outputs[Unir tout sortie 1]" />
+              startId="Package\DFT - Load FactsTable\ALL - Error.Outputs[Unir tout sortie 1]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -2240,7 +2240,7 @@ where [refTable].[EmployeeID] = ?</property>
         <NodeLayout
           Size="192,42"
           Id="Package\DFT - Load FactsTable"
-          TopLeft="138.5,106.5" />
+          TopLeft="192.5,105.5" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -2250,251 +2250,69 @@ where [refTable].[EmployeeID] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="209,42"
-          Id="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData"
-          TopLeft="196.5,17.25" />
+          Size="178,42"
+          Id="Package\DFT - Load FactsTable\LKP - DImEmployee"
+          TopLeft="227.75,126.75" />
+        <NodeLayout
+          Size="133,42"
+          Id="Package\DFT - Load FactsTable\ALL - Error"
+          TopLeft="646.25,141.25" />
         <NodeLayout
           Size="165,42"
           Id="Package\DFT - Load FactsTable\OLE_DST - Facts"
           TopLeft="221.75,342.142857142857" />
         <NodeLayout
-          Size="178,42"
-          Id="Package\DFT - Load FactsTable\LKP - DImEmployee"
-          TopLeft="227.75,126.75" />
+          Size="217,42"
+          Id="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject"
+          TopLeft="885,166.25" />
         <NodeLayout
           Size="172,42"
           Id="Package\DFT - Load FactsTable\LKP - DimCallType"
           TopLeft="211,229.75" />
-        <EdgeLayout
-          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="316.75,168.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-19.75,61"
-              Start="0,0"
-              End="-19.75,53.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.5"
-                    Point2="0,30.5"
-                    Point3="-4,30.5" />
-                  <mssgle:LineSegment
-                    End="-15.75,30.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-15.75,30.5"
-                    Point2="-19.75,30.5"
-                    Point3="-19.75,34.5" />
-                  <mssgle:LineSegment
-                    End="-19.75,53.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-101.55201171875,35.5,183.3540234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="205,42"
-          Id="Package\DFT - Load FactsTable\DER -Error Info(CallType)"
-          TopLeft="421.5,185.392857142857" />
-        <EdgeLayout
-          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche sans correspondance]"
-          TopLeft="383,250.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="38.5,-44.3571428571429"
-              Start="0,0"
-              End="31,-44.3571428571429">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="15.25,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="15.25,0"
-                    Point2="19.25,0"
-                    Point3="19.25,-4" />
-                  <mssgle:LineSegment
-                    End="19.25,-40.3571428571429" />
-                  <mssgle:CubicBezierSegment
-                    Point1="19.25,-40.3571428571429"
-                    Point2="19.25,-44.3571428571429"
-                    Point3="23.25,-44.3571428571429" />
-                  <mssgle:LineSegment
-                    End="31,-44.3571428571429" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-72.25201171875,1,183.0040234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="211,42"
           Id="Package\DFT - Load FactsTable\DER -Error Info(Employee)"
           TopLeft="426.285714285714,88.3214285714286" />
-        <EdgeLayout
-          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche sans correspondance1]"
-          TopLeft="345.083333333333,126.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="81.202380952381,-17.4285714285714"
-              Start="0,0"
-              End="73.702380952381,-17.4285714285714">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-13.4285714285714" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-13.4285714285714"
-                    Point2="0,-17.4285714285714"
-                    Point3="4,-17.4285714285714" />
-                  <mssgle:LineSegment
-                    End="73.702380952381,-17.4285714285714" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-52.6508212425595,-12.4285714285714,183.0040234375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="158,42"
-          Id="Package\DFT - Load FactsTable\Union ALL Error"
-          TopLeft="646.25,141.25" />
-        <EdgeLayout
-          Id="Package\DFT - Load FactsTable.Paths[Sortie de colonne dérivée]"
-          TopLeft="637.285714285714,109.321428571429">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="87.9642857142857,31.9285714285714"
-              Start="0,0"
-              End="87.9642857142857,24.4285714285714">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="83.9642857142857,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="83.9642857142857,0"
-                    Point2="87.9642857142857,0"
-                    Point3="87.9642857142857,4" />
-                  <mssgle:LineSegment
-                    End="87.9642857142857,24.4285714285714" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT - Load FactsTable.Paths[Sortie de colonne dérivée1]"
-          TopLeft="524,185.392857142857">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="122.25,-23.1428571428571"
-              Start="0,0"
-              End="114.75,-23.1428571428571">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-19.1428571428571" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-19.1428571428571"
-                    Point2="0,-23.1428571428571"
-                    Point3="4,-23.1428571428571" />
-                  <mssgle:LineSegment
-                    End="114.75,-23.1428571428571" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          Size="205,42"
+          Id="Package\DFT - Load FactsTable\DER -Error Info(CallType)"
+          TopLeft="421.5,185.392857142857" />
         <NodeLayout
-          Size="217,42"
-          Id="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject"
-          TopLeft="885,166.25" />
+          Size="209,42"
+          Id="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData"
+          TopLeft="196.5,17.25" />
         <EdgeLayout
           Id="Package\DFT - Load FactsTable.Paths[Unir tout sortie 1]"
-          TopLeft="804.25,162.25">
+          TopLeft="779.25,162.25">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="80.75,25"
+              EndConnector="105.75,25"
               Start="0,0"
-              End="73.25,25">
+              End="98.25,25">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="36.375,0" />
+                    End="48.875,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="36.375,0"
-                    Point2="40.375,0"
-                    Point3="40.375,4" />
+                    Point1="48.875,0"
+                    Point2="52.875,0"
+                    Point3="52.875,4" />
                   <mssgle:LineSegment
-                    End="40.375,21" />
+                    End="52.875,21" />
                   <mssgle:CubicBezierSegment
-                    Point1="40.375,21"
-                    Point2="40.375,25"
-                    Point3="44.375,25" />
+                    Point1="52.875,21"
+                    Point2="52.875,25"
+                    Point3="56.875,25" />
                   <mssgle:LineSegment
-                    End="73.25,25" />
+                    End="98.25,25" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche avec correspondance1]"
-          TopLeft="300.625,271.75">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,70.3928571428572"
-              Start="0,0"
-              End="0,62.8928571428572">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,62.8928571428572" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.67701171875,25.6417410714286,183.3540234375,11.609375"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2531,9 +2349,214 @@ where [refTable].[EmployeeID] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche sans correspondance1]"
+          TopLeft="345.083333333333,126.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="81.202380952381,-17.4285714285714"
+              Start="0,0"
+              End="73.702380952381,-17.4285714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-13.4285714285714" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-13.4285714285714"
+                    Point2="0,-17.4285714285714"
+                    Point3="4,-17.4285714285714" />
+                  <mssgle:LineSegment
+                    End="73.702380952381,-17.4285714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-52.6508212425595,-12.4285714285714,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche sans correspondance]"
+          TopLeft="383,250.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="38.5,-44.3571428571429"
+              Start="0,0"
+              End="31,-44.3571428571429">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="15.25,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="15.25,0"
+                    Point2="19.25,0"
+                    Point3="19.25,-4" />
+                  <mssgle:LineSegment
+                    End="19.25,-40.3571428571429" />
+                  <mssgle:CubicBezierSegment
+                    Point1="19.25,-40.3571428571429"
+                    Point2="19.25,-44.3571428571429"
+                    Point3="23.25,-44.3571428571429" />
+                  <mssgle:LineSegment
+                    End="31,-44.3571428571429" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-72.25201171875,1,183.0040234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="300.625,271.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,70.3928571428572"
+              Start="0,0"
+              End="0,62.8928571428572">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.8928571428572" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,25.6417410714286,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load FactsTable.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="316.75,168.75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.75,61"
+              Start="0,0"
+              End="-19.75,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,26.5"
+                    Point2="0,30.5"
+                    Point3="-4,30.5" />
+                  <mssgle:LineSegment
+                    End="-15.75,30.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.75,30.5"
+                    Point2="-19.75,30.5"
+                    Point3="-19.75,34.5" />
+                  <mssgle:LineSegment
+                    End="-19.75,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-101.55201171875,35.5,183.3540234375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load FactsTable.Paths[Sortie de colonne dérivée1]"
+          TopLeft="524,185.392857142857">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="122.25,-23.142857142857"
+              Start="0,0"
+              End="114.75,-23.142857142857">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-19.142857142857" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-19.142857142857"
+                    Point2="0,-23.142857142857"
+                    Point3="4,-23.142857142857" />
+                  <mssgle:LineSegment
+                    End="114.75,-23.142857142857" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DFT - Load FactsTable.Paths[Sortie de colonne dérivée]"
+          TopLeft="637.285714285714,109.321428571429">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.464285714286,31.9285714285714"
+              Start="0,0"
+              End="75.464285714286,24.4285714285714">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.464285714286,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="71.464285714286,0"
+                    Point2="75.464285714286,0"
+                    Point3="75.464285714286,4" />
+                  <mssgle:LineSegment
+                    End="75.464285714286,24.4285714285714" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load FactsTable\LKP - DImEmployee">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimEmployee]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\DFT - Load FactsTable\OLE_DST - Facts">
     <Properties>
@@ -2548,7 +2571,7 @@ where [refTable].[EmployeeID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData">
+    design-time-name="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2561,35 +2584,12 @@ where [refTable].[EmployeeID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Load FactsTable\LKP - DImEmployee">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimEmployee]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DFT - Load FactsTable\LKP - DimCallType">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -2599,7 +2599,7 @@ where [refTable].[EmployeeID] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2607,7 +2607,7 @@ where [refTable].[EmployeeID] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Load FactsTable\OLE_DST - TechnicalReject">
+    design-time-name="Package\DFT - Load FactsTable\OLE_SRC - ODS CallData">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
