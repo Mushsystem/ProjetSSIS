@@ -11,36 +11,10 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package2"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{C1FC5C5E-4911-495D-A8EC-44D093F98502}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{DD128F94-55E5-4B4D-9D7F-40E0DB6CF946}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:ConnectionManagers>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[ODS]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{75F66D73-4545-4364-861E-F30D5A058A3A}"
-      DTS:ObjectName="ODS">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{75F66D73-4545-4364-861E-F30D5A058A3A}.\SQLEXPRESS.ODS;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-    <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[STA]"
-      DTS:CreationName="OLEDB"
-      DTS:DTSID="{9B523366-5460-4D6F-87AC-1E553B7B9F23}"
-      DTS:ObjectName="STA">
-      <DTS:ObjectData>
-        <DTS:ConnectionManager
-          DTS:ConnectRetryCount="1"
-          DTS:ConnectRetryInterval="5"
-          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=STA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{9B523366-5460-4D6F-87AC-1E553B7B9F23}.\SQLEXPRESS.STA;Auto Translate=False;" />
-      </DTS:ObjectData>
-    </DTS:ConnectionManager>
-  </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
@@ -319,8 +293,8 @@
               <connections>
                 <connection
                   refId="Package\DFT - Load ODS CallType\Destination OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ODS]"
-                  connectionManagerRefId="Package.ConnectionManagers[ODS]"
+                  connectionManagerID="{75F66D73-4545-4364-861E-F30D5A058A3A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>
@@ -487,8 +461,8 @@ where [refTable].[CallTypeLabel] = ?</property>
               <connections>
                 <connection
                   refId="Package\DFT - Load ODS CallType\Recherche.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[STA]"
-                  connectionManagerRefId="Package.ConnectionManagers[STA]"
+                  connectionManagerID="{9B523366-5460-4D6F-87AC-1E553B7B9F23}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[STA]"
                   description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
                   name="OleDbConnection" />
               </connections>
@@ -630,8 +604,8 @@ where [refTable].[CallTypeLabel] = ?</property>
               <connections>
                 <connection
                   refId="Package\DFT - Load ODS CallType\Source OLE DB.Connections[OleDbConnection]"
-                  connectionManagerID="Package.ConnectionManagers[ODS]"
-                  connectionManagerRefId="Package.ConnectionManagers[ODS]"
+                  connectionManagerID="{75F66D73-4545-4364-861E-F30D5A058A3A}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ODS]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
                   name="OleDbConnection" />
               </connections>

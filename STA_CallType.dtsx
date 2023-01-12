@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="STA_CallType"
   DTS:PackageType="5"
-  DTS:VersionBuild="6"
-  DTS:VersionGUID="{BBB72F54-F501-484B-8D4E-7380E9F794F8}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{6BEFE0CF-FC03-4F2C-AC0A-A7C61FB699CB}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>

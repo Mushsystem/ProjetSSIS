@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="DWH"
+  DTS:DTSID="{F03040FA-7D5C-4D64-89DB-E44C8B65107B}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package2-{F03040FA-7D5C-4D64-89DB-E44C8B65107B}.\SQLEXPRESS.DWH;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
