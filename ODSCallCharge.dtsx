@@ -11,11 +11,23 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="2"
-  DTS:VersionGUID="{35D080CC-4BEF-4AA5-8A4C-6C2114D6DEC9}">
+  DTS:VersionBuild="10"
+  DTS:VersionGUID="{069CB35C-C690-4A03-8B62-60C32CF6EB7E}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{89CEBA4C-71C2-484C-A1D0-6315D66908CD}"
+      DTS:ObjectName=".\SQLEXPRESS.ODS">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=ODS;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{89CEBA4C-71C2-484C-A1D0-6315D66908CD}.\SQLEXPRESS.ODS;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
     <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
       DTS:CreationName="OLEDB"
@@ -32,13 +44,13 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Tâche de flux de données"
+      DTS:refId="Package\DFT - Load ODS CallData"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Tâche de flux de données"
       DTS:DTSID="{526EB89C-4277-4684-A731-EC5D916B3353}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Tâche de flux de données"
+      DTS:ObjectName="DFT - Load ODS CallData"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -46,47 +58,104 @@
           version="1">
           <components>
             <component
-              refId="Package\Tâche de flux de données\Colonne dérivée"
+              refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
               description="Crée de nouvelles valeurs de colonne en appliquant des expressions aux colonnes d'entrée de transformation. Créez de nouvelles colonnes ou remplacez celles qui existent déjà. Par exemple, concaténez les valeurs de la colonne 'prénom' et de la colonne 'nom' pour créer une colonne 'nom complet'."
-              name="Colonne dérivée"
+              name="DER - Separate CallDate and CallStartTime"
               usesDispositions="true">
               <inputs>
                 <input
-                  refId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+                  refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Inputs[Entrée de colonne dérivée]"
                   description="Entrée de la transformation de colonnes dérivées"
                   name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Inputs[Entrée de colonne dérivée].Columns[CallTimestamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallTimestamp"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]" />
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie de colonne dérivée]"
+                  refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée]"
                   description="Sortie par défaut de la transformation de colonnes dérivées"
                   exclusionGroup="1"
                   name="Sortie de colonne dérivée"
-                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="255"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]"
+                      name="CallDate"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[SUBSTRING](#{Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]},1,[FINDSTRING](#{Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]}," ",1) - 1)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(CallTimestamp,1,FINDSTRING(CallTimestamp," ",1) - 1)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallStart]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      length="5"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallStart]"
+                      name="CallStart"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[SUBSTRING](#{Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]},[FINDSTRING](#{Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]}," ",1) + 1,5)</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">SUBSTRING(CallTimestamp,FINDSTRING(CallTimestamp," ",1) + 1,5)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
-                  refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée]"
+                  refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie d'erreur de colonne dérivée]"
                   description="Sortie d'erreur de la transformation de colonnes dérivées"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="Sortie d'erreur de colonne dérivée"
-                  synchronousInputId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]">
+                  synchronousInputId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Inputs[Entrée de colonne dérivée]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      refId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\Colonne dérivée.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -95,7 +164,218 @@
               </outputs>
             </component>
             <component
-              refId="Package\Tâche de flux de données\SRC - OLE DataCall"
+              refId="Package\DFT - Load ODS CallData\OLE_DST - CallData"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="OLE_DST - CallData"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande.  Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[ODSCallData]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données.  Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données.  Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.ODS]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[Call Type]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="Call Type"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[EmployeeID]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="EmployeeID"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[EmployeeID]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[WaitTime]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="WaitTime"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[WaitTime]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[WaitTime]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallAbandoned]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallAbandoned"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallAbandoned]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallDuration]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallDuration"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallDuration]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallTimestamp]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="255"
+                      cachedName="CallTimestamp"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTimestamp]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallDate]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="CallDate"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDate]"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallDate]" />
+                    <inputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].Columns[CallStart]"
+                      cachedDataType="wstr"
+                      cachedLength="5"
+                      cachedName="CallStart"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallStart]"
+                      lineageId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée].Columns[CallStart]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[Call Type]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="Call Type" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[EmployeeID]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="EmployeeID" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[WaitTime]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="WaitTime" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallAbandoned]"
+                      codePage="1252"
+                      dataType="str"
+                      length="2"
+                      name="CallAbandoned" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDuration]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CallDuration" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallTimestamp]"
+                      codePage="1252"
+                      dataType="str"
+                      length="255"
+                      name="CallTimestamp" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallDate]"
+                      dataType="wstr"
+                      length="20"
+                      name="CallDate" />
+                    <externalMetadataColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB].ExternalColumns[CallStart]"
+                      dataType="wstr"
+                      length="5"
+                      name="CallStart" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
               description="Source OLE DB"
@@ -144,7 +424,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Tâche de flux de données\SRC - OLE DataCall.Connections[OleDbConnection]"
+                  refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
                   connectionManagerRefId="Package.ConnectionManagers[.\SQLEXPRESS.STA]"
                   description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
@@ -152,110 +432,110 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB]"
+                  refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB]"
                   name="Sortie de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type]"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[Call Type]"
                       name="Call Type"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[EmployeeID]"
                       name="EmployeeID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallDuration]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallDuration]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallDuration]"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallDuration]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallDuration]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallDuration]"
                       name="CallDuration"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[WaitTime]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[WaitTime]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[WaitTime]"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[WaitTime]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[WaitTime]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[WaitTime]"
                       name="WaitTime"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallAbandoned]"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallAbandoned]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallAbandoned]"
                       name="CallAbandoned"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]"
                       codePage="1252"
                       dataType="str"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallTimestamp]"
+                      externalMetadataColumnId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallTimestamp]"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].Columns[CallTimestamp]"
                       name="CallTimestamp"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[Call Type]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="Call Type" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="EmployeeID" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallDuration]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallDuration]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="CallDuration" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[WaitTime]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[WaitTime]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="WaitTime" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallAbandoned]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallAbandoned]"
                       codePage="1252"
                       dataType="str"
                       length="255"
                       name="CallAbandoned" />
                     <externalMetadataColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallTimestamp]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB].ExternalColumns[CallTimestamp]"
                       codePage="1252"
                       dataType="str"
                       length="255"
@@ -263,62 +543,62 @@
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB]"
+                  refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB]"
                   isErrorOut="true"
                   name="Sortie d'erreur de source OLE DB">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[Call Type]"
                       name="Call Type" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[EmployeeID]"
                       name="EmployeeID" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallDuration]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallDuration]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallDuration]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallDuration]"
                       name="CallDuration" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[WaitTime]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[WaitTime]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[WaitTime]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[WaitTime]"
                       name="WaitTime" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallAbandoned]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallAbandoned]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallAbandoned]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallAbandoned]"
                       name="CallAbandoned" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTimestamp]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTimestamp]"
                       codePage="1252"
                       dataType="str"
                       length="255"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTimestamp]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[CallTimestamp]"
                       name="CallTimestamp" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      refId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      lineageId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -329,15 +609,47 @@
           </components>
           <paths>
             <path
-              refId="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
-              endId="Package\Tâche de flux de données\Colonne dérivée.Inputs[Entrée de colonne dérivée]"
+              refId="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée]"
+              endId="Package\DFT - Load ODS CallData\OLE_DST - CallData.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\DFT - Load ODS CallData.Paths[Sortie de source OLE DB]"
+              endId="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime.Inputs[Entrée de colonne dérivée]"
               name="Sortie de source OLE DB"
-              startId="Package\Tâche de flux de données\SRC - OLE DataCall.Outputs[Sortie de source OLE DB]" />
+              startId="Package\DFT - Load ODS CallData\SRC - OLE DataCall.Outputs[Sortie de source OLE DB]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL - Empty ODS CallData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{F5B8F25D-24FA-4C16-8529-585979CF313E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL - Empty ODS CallData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{89CEBA4C-71C2-484C-A1D0-6315D66908CD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE ODSCALLDATA" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3D0FB789-4905-4B10-953A-229F3676201E}"
+      DTS:From="Package\SQL - Empty ODS CallData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\DFT - Load ODS CallData" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -349,36 +661,62 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="205,42"
-          Id="Package\Tâche de flux de données"
-          TopLeft="123.5,101.5" />
+          Size="206,42"
+          Id="Package\DFT - Load ODS CallData"
+          TopLeft="153.5,137.5" />
+        <NodeLayout
+          Size="214,42"
+          Id="Package\SQL - Empty ODS CallData"
+          TopLeft="155,33" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="259.25,75">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,62.5"
+              Start="0,0"
+              End="0,55">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Tâche de flux de données">
+    design-time-name="Package\DFT - Load ODS CallData">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="293,42"
+          Id="Package\DFT - Load ODS CallData\DER - Separate CallDate and CallStartTime"
+          TopLeft="126.5,145.5" />
         <NodeLayout
           Size="179,42"
-          Id="Package\Tâche de flux de données\SRC - OLE DataCall"
+          Id="Package\DFT - Load ODS CallData\SRC - OLE DataCall"
           TopLeft="108.5,39.5" />
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Tâche de flux de données\Colonne dérivée"
-          TopLeft="126.5,145.5" />
         <EdgeLayout
-          Id="Package\Tâche de flux de données.Paths[Sortie de source OLE DB]"
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de source OLE DB]"
           TopLeft="198,81.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="8,64"
+              EndConnector="75,64"
               Start="0,0"
-              End="8,56.5">
+              End="75,56.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -389,13 +727,51 @@
                     Point2="0,32"
                     Point3="4,32" />
                   <mssgle:LineSegment
-                    End="4,32" />
+                    End="71,32" />
                   <mssgle:CubicBezierSegment
-                    Point1="4,32"
-                    Point2="8,32"
-                    Point3="8,36" />
+                    Point1="71,32"
+                    Point2="75,32"
+                    Point3="75,36" />
                   <mssgle:LineSegment
-                    End="8,56.5" />
+                    End="75,56.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\DFT - Load ODS CallData\OLE_DST - CallData"
+          TopLeft="168,308" />
+        <EdgeLayout
+          Id="Package\DFT - Load ODS CallData.Paths[Sortie de colonne dérivée]"
+          TopLeft="273,187.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.5,120.5"
+              Start="0,0"
+              End="-14.5,113">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.25"
+                    Point2="0,60.25"
+                    Point3="-4,60.25" />
+                  <mssgle:LineSegment
+                    End="-10.5,60.25" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,60.25"
+                    Point2="-14.5,60.25"
+                    Point3="-14.5,64.25" />
+                  <mssgle:LineSegment
+                    End="-14.5,113" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -408,7 +784,20 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Tâche de flux de données\SRC - OLE DataCall">
+    design-time-name="Package\DFT - Load ODS CallData\SRC - OLE DataCall">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load ODS CallData\OLE_DST - CallData">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

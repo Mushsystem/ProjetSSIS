@@ -11,8 +11,8 @@
   DTS:LocaleID="1036"
   DTS:ObjectName="Package3"
   DTS:PackageType="5"
-  DTS:VersionBuild="9"
-  DTS:VersionGUID="{EDA8B2D7-001F-4919-8C68-1985FA2186FE}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{5122DFD2-FF6F-4D09-8E63-91EBE8CE5551}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -842,9 +842,21 @@ where [refTable].[StateCD] = ?</property>
           Id="Package\DFT - Load ODS Employees\DER - Get StateCode"
           TopLeft="22,89" />
         <NodeLayout
+          Size="193,42"
+          Id="Package\DFT - Load ODS Employees\OLE_DST - Employees"
+          TopLeft="48,356" />
+        <NodeLayout
+          Size="164,42"
+          Id="Package\DFT - Load ODS Employees\LKP - StateName"
+          TopLeft="62,275" />
+        <NodeLayout
           Size="194,42"
           Id="Package\DFT - Load ODS Employees\OLE_SRC - Employees"
           TopLeft="10.5,8.5" />
+        <NodeLayout
+          Size="220,42"
+          Id="Package\DFT - Load ODS Employees\DCNV - Checking StateCode"
+          TopLeft="19,184" />
         <EdgeLayout
           Id="Package\DFT - Load ODS Employees.Paths[Sortie de source OLE DB]"
           TopLeft="110.75,50.5">
@@ -867,48 +879,30 @@ where [refTable].[StateCD] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="220,42"
-          Id="Package\DFT - Load ODS Employees\DCNV - Checking StateCode"
-          TopLeft="19,184" />
         <EdgeLayout
-          Id="Package\DFT - Load ODS Employees.Paths[Sortie de colonne dérivée]"
-          TopLeft="114,131">
+          Id="Package\DFT - Load ODS Employees.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="144.25,317">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15,53"
+              EndConnector="0,39"
               Start="0,0"
-              End="15,45.5">
+              End="0,31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,22.5"
-                    Point2="0,26.5"
-                    Point3="4,26.5" />
-                  <mssgle:LineSegment
-                    End="11,26.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="11,26.5"
-                    Point2="15,26.5"
-                    Point3="15,30.5" />
-                  <mssgle:LineSegment
-                    End="15,45.5" />
+                    End="0,31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-91.67701171875,9.9453125,183.3540234375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="164,42"
-          Id="Package\DFT - Load ODS Employees\LKP - StateName"
-          TopLeft="62,275" />
         <EdgeLayout
           Id="Package\DFT - Load ODS Employees.Paths[Sortie de conversion de données]"
           TopLeft="129,226">
@@ -943,32 +937,38 @@ where [refTable].[StateCD] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="193,42"
-          Id="Package\DFT - Load ODS Employees\OLE_DST - Employees"
-          TopLeft="48,356" />
         <EdgeLayout
-          Id="Package\DFT - Load ODS Employees.Paths[Sortie de recherche avec correspondance]"
-          TopLeft="144.25,317">
+          Id="Package\DFT - Load ODS Employees.Paths[Sortie de colonne dérivée]"
+          TopLeft="114,131">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,39"
+              EndConnector="15,53"
               Start="0,0"
-              End="0,31.5">
+              End="15,45.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,31.5" />
+                    End="0,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5"
+                    Point2="0,26.5"
+                    Point3="4,26.5" />
+                  <mssgle:LineSegment
+                    End="11,26.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="11,26.5"
+                    Point2="15,26.5"
+                    Point3="15,30.5" />
+                  <mssgle:LineSegment
+                    End="15,45.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-91.67701171875,9.9453125,183.3540234375,11.609375"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -988,29 +988,6 @@ where [refTable].[StateCD] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\DFT - Load ODS Employees\LKP - StateName">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[US_State]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
     design-time-name="Package\DFT - Load ODS Employees\OLE_DST - Employees">
     <Properties>
       <Property>
@@ -1020,6 +997,29 @@ where [refTable].[StateCD] = ?</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DFT - Load ODS Employees\LKP - StateName">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[US_State]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
